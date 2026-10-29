@@ -1,0 +1,525 @@
+.contracepcao-app {
+      --rosa-claro-local: #fff1f7;
+      --rosa-fundo-local: #fff7fb;
+      --rosa-local: #f5a6c8;
+      --rosa-forte-local: #d85f99;
+      --vinho-local: #43192e;
+      --texto-local: #4a4a4a;
+      --muted-local: #666;
+      --borda-local: #f1d5e3;
+      --branco-local: #ffffff;
+
+      --verde: #1e7e5c;
+      --verde-bg: #eaf7f1;
+      --amarelo: #b5860b;
+      --amarelo-bg: #fff8e8;
+      --laranja: #c4651b;
+      --laranja-bg: #fff0df;
+      --vermelho: #b3261e;
+      --vermelho-bg: #fff0f3;
+
+      --sombra-local: 0 10px 25px rgba(122, 47, 85, 0.08);
+      --radius-local: 24px;
+
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      color: var(--texto-local);
+      font-family: 'Caviar Dreams', 'Inter', Arial, Helvetica, sans-serif;
+    }
+
+    .contracepcao-app * {
+      box-sizing: border-box;
+    }
+
+    .contracepcao-app .app-header {
+      background: linear-gradient(135deg, var(--vinho-local), var(--rosa-forte-local));
+      color: white;
+      border-radius: 30px;
+      padding: 34px 30px;
+      margin-bottom: 24px;
+      box-shadow: var(--sombra-local);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contracepcao-app .app-header::before {
+      content: "";
+      position: absolute;
+      right: -60px;
+      top: -60px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.08);
+    }
+
+    .contracepcao-app .app-header::after {
+      content: "";
+      position: absolute;
+      right: 90px;
+      bottom: -80px;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.06);
+    }
+
+    .contracepcao-app .app-header-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contracepcao-app .app-header h2 {
+      font-family: 'TAN Whistling', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: normal;
+      line-height: 1;
+      margin: 0 0 10px;
+      color: white;
+    }
+
+    .contracepcao-app .app-header p {
+      margin: 0;
+      max-width: 850px;
+      line-height: 1.6;
+      color: rgba(255,255,255,.9);
+      font-size: 1rem;
+    }
+
+    .contracepcao-app .alert-top {
+      background: var(--rosa-claro-local);
+      border: 1px solid var(--borda-local);
+      color: var(--vinho-local);
+      padding: 15px 16px;
+      border-radius: 18px;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .contracepcao-app .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .contracepcao-app .tab-button {
+      border: 1px solid var(--borda-local);
+      background: white;
+      color: var(--vinho-local);
+      padding: 11px 15px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 800;
+      transition: .2s;
+      font-family: inherit;
+      font-size: .92rem;
+    }
+
+    .contracepcao-app .tab-button:hover {
+      border-color: var(--rosa-forte-local);
+      color: var(--rosa-forte-local);
+      background: var(--rosa-claro-local);
+    }
+
+    .contracepcao-app .tab-button.active {
+      background: var(--rosa-forte-local);
+      color: white;
+      border-color: var(--rosa-forte-local);
+      box-shadow: 0 8px 18px rgba(216, 95, 153, 0.18);
+    }
+
+    .contracepcao-app .tab {
+      display: none;
+    }
+
+    .contracepcao-app .tab.active {
+      display: block;
+    }
+
+    .contracepcao-app .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+
+    .contracepcao-app .card {
+      background: white;
+      border: 1px solid var(--borda-local);
+      border-radius: var(--radius-local);
+      padding: 22px;
+      box-shadow: var(--sombra-local);
+    }
+
+    .contracepcao-app .col-12 {
+      grid-column: span 12;
+    }
+
+    .contracepcao-app .col-8 {
+      grid-column: span 8;
+    }
+
+    .contracepcao-app .col-6 {
+      grid-column: span 6;
+    }
+
+    .contracepcao-app .col-4 {
+      grid-column: span 4;
+    }
+
+    .contracepcao-app .row {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
+
+    .contracepcao-app .span-12 {
+      grid-column: span 12;
+    }
+
+    .contracepcao-app .span-6 {
+      grid-column: span 6;
+    }
+
+    .contracepcao-app .span-4 {
+      grid-column: span 4;
+    }
+
+    .contracepcao-app .span-3 {
+      grid-column: span 3;
+    }
+
+    .contracepcao-app h2,
+    .contracepcao-app h3 {
+      color: var(--vinho-local);
+      margin-top: 0;
+    }
+
+    .contracepcao-app h2 {
+      font-family: 'TAN Whistling', Georgia, serif;
+      font-size: 1.8rem;
+      font-weight: normal;
+      margin-bottom: 14px;
+    }
+
+    .contracepcao-app h3 {
+      font-size: 1.05rem;
+      margin: 20px 0 12px;
+      font-weight: 800;
+    }
+
+    .contracepcao-app .field {
+      margin-bottom: 14px;
+    }
+
+    .contracepcao-app label {
+      display: block;
+      font-weight: 800;
+      margin-bottom: 7px;
+      font-size: .9rem;
+      color: var(--vinho-local);
+    }
+
+    .contracepcao-app input,
+    .contracepcao-app select,
+    .contracepcao-app textarea {
+      width: 100%;
+      padding: 11px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--borda-local);
+      font-size: .95rem;
+      background: #fffafd;
+      color: var(--vinho-local);
+      font-family: inherit;
+      transition: .15s;
+    }
+
+    .contracepcao-app input:focus,
+    .contracepcao-app select:focus,
+    .contracepcao-app textarea:focus {
+      outline: 2px solid rgba(216,95,153,.18);
+      border-color: var(--rosa-forte-local);
+      background: white;
+    }
+
+    .contracepcao-app textarea {
+      min-height: 90px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    .contracepcao-app .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .contracepcao-app .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      padding: 11px;
+      border: 1px solid var(--borda-local);
+      border-radius: 14px;
+      background: #fffafd;
+      cursor: pointer;
+      transition: .15s;
+    }
+
+    .contracepcao-app .check-item:hover {
+      background: var(--rosa-claro-local);
+      border-color: var(--rosa-local);
+    }
+
+    .contracepcao-app .check-item input {
+      width: auto;
+      margin-top: 3px;
+      accent-color: var(--rosa-forte-local);
+    }
+
+    .contracepcao-app .check-item span {
+      font-size: .92rem;
+      line-height: 1.35;
+      color: var(--texto-local);
+    }
+
+    .contracepcao-app .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .contracepcao-app button.primary,
+    .contracepcao-app button.secondary {
+      padding: 12px 17px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: .95rem;
+      font-family: inherit;
+      transition: .2s;
+    }
+
+    .contracepcao-app button.primary {
+      background: var(--rosa-forte-local);
+      color: white;
+      border: 0;
+      box-shadow: 0 8px 18px rgba(216, 95, 153, 0.18);
+    }
+
+    .contracepcao-app button.primary:hover {
+      background: var(--vinho-local);
+      transform: translateY(-1px);
+    }
+
+    .contracepcao-app button.secondary {
+      background: white;
+      color: var(--rosa-forte-local);
+      border: 1px solid var(--rosa-forte-local);
+    }
+
+    .contracepcao-app button.secondary:hover {
+      background: var(--rosa-claro-local);
+    }
+
+    .contracepcao-app .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 800;
+      margin: 3px;
+    }
+
+    .contracepcao-app .pill.green {
+      background: var(--verde-bg);
+      color: var(--verde);
+    }
+
+    .contracepcao-app .pill.yellow {
+      background: var(--amarelo-bg);
+      color: var(--amarelo);
+    }
+
+    .contracepcao-app .pill.orange {
+      background: var(--laranja-bg);
+      color: var(--laranja);
+    }
+
+    .contracepcao-app .pill.red {
+      background: var(--vermelho-bg);
+      color: var(--vermelho);
+    }
+
+    .contracepcao-app .pill.pink {
+      background: var(--rosa-claro-local);
+      color: var(--rosa-forte-local);
+    }
+
+    .contracepcao-app .method-card {
+      border: 1px solid var(--borda-local);
+      border-radius: 18px;
+      padding: 16px;
+      margin-bottom: 12px;
+      background: white;
+    }
+
+    .contracepcao-app .method-card.green {
+      border-left: 7px solid var(--verde);
+    }
+
+    .contracepcao-app .method-card.yellow {
+      border-left: 7px solid var(--amarelo);
+    }
+
+    .contracepcao-app .method-card.orange {
+      border-left: 7px solid var(--laranja);
+    }
+
+    .contracepcao-app .method-card.red {
+      border-left: 7px solid var(--vermelho);
+    }
+
+    .contracepcao-app .method-title {
+      font-weight: 900;
+      font-size: 1.05rem;
+      margin-bottom: 5px;
+      color: var(--vinho-local);
+    }
+
+    .contracepcao-app .method-sub {
+      color: var(--muted-local);
+      font-size: .92rem;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .contracepcao-app .method-reasons {
+      margin: 10px 0 0;
+      padding-left: 20px;
+      line-height: 1.5;
+      color: var(--texto-local);
+      font-size: .92rem;
+    }
+
+    .contracepcao-app .sus-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 14px;
+      font-size: .9rem;
+    }
+
+    .contracepcao-app .sus-table th,
+    .contracepcao-app .sus-table td {
+      border: 1px solid var(--borda-local);
+      padding: 11px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .contracepcao-app .sus-table th {
+      background: var(--rosa-claro-local);
+      color: var(--vinho-local);
+      font-weight: 900;
+    }
+
+    .contracepcao-app .small {
+      color: var(--muted-local);
+      font-size: .92rem;
+      line-height: 1.5;
+    }
+
+    .contracepcao-app .soap-box {
+      background: var(--vinho-local);
+      color: #fff7fb;
+      border-radius: 18px;
+      padding: 18px;
+      white-space: pre-wrap;
+      line-height: 1.55;
+      font-family: "Courier New", monospace;
+      font-size: .9rem;
+      overflow-x: auto;
+    }
+
+    .contracepcao-app .warning {
+      background: var(--vermelho-bg);
+      color: #7f1d1d;
+      border: 1px solid #fecaca;
+      padding: 13px;
+      border-radius: 14px;
+      margin: 10px 0;
+      line-height: 1.45;
+    }
+
+    .contracepcao-app .info {
+      background: var(--rosa-claro-local);
+      color: var(--vinho-local);
+      border: 1px solid var(--borda-local);
+      padding: 13px;
+      border-radius: 14px;
+      margin: 10px 0;
+      line-height: 1.45;
+    }
+
+    .contracepcao-app ul {
+      padding-left: 22px;
+      line-height: 1.65;
+      color: var(--texto-local);
+    }
+
+    @media (max-width: 850px) {
+      .contracepcao-app .col-8,
+      .contracepcao-app .col-6,
+      .contracepcao-app .col-4 {
+        grid-column: span 12;
+      }
+
+      .contracepcao-app .span-6,
+      .contracepcao-app .span-4,
+      .contracepcao-app .span-3 {
+        grid-column: span 12;
+      }
+
+      .contracepcao-app .checkbox-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contracepcao-app .app-header {
+        padding: 26px 20px;
+      }
+
+      .contracepcao-app .sus-table {
+        font-size: .82rem;
+      }
+    }
+
+    @media print {
+      .topbar,
+      .program-header,
+      .contracepcao-app .app-header,
+      .contracepcao-app .tabs,
+      .contracepcao-app .buttons,
+      .contracepcao-app .alert-top,
+      footer {
+        display: none !important;
+      }
+
+      body {
+        background: white !important;
+      }
+
+      .program-area,
+      .contracepcao-app .card {
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+      }
+
+      .contracepcao-app .tab {
+        display: block !important;
+      }
+    }

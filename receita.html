@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Receita sem data | MarquiAPS</title>
+<link rel="stylesheet" href="css/base/fontes.css">
+<link rel="stylesheet" href="css/base/marca.css">
+<link rel="stylesheet" href="css/base/estrutura.css">
+<link rel="stylesheet" href="css/paginas/requisicoes/comum.css">
+<link rel="stylesheet" href="css/paginas/receita.css">
+<script src="assets/vendor/pdfjs/pdf.min.js"></script>
+<script type="module" src="js/receita/app.js"></script>
+<link rel="stylesheet" href="css/base/visual.css">
+</head>
+<body>
+<header class="mq-top" data-componente="cabecalho"></header>
+<div class="bar"><div class="bar-in">
+  <h1>Receita sem data<small>Receituário de Controle Especial · e-SUS PEC</small></h1>
+</div></div>
+
+<main>
+<section>
+  <h2><span>Receita</span>Tirar a data da receita do PEC</h2>
+  <p class="intro">Solte aqui o PDF do Receituário de Controle Especial gerado no e-SUS PEC. A data abaixo da assinatura sai das duas vias, e você baixa a receita pronta para imprimir.</p>
+  <div class="drop" id="drop" tabindex="0" role="button" aria-label="Escolher PDFs de receita">
+    <b>Arraste as receitas em PDF para cá</b>
+    <small>ou clique para escolher. Pode mandar várias de uma vez.</small>
+    <input type="file" id="file" accept="application/pdf,.pdf" multiple hidden>
+  </div>
+  <div class="opts-receita">
+    <label class="opt"><input type="checkbox" id="optBlank" checked> Deixar linha para preencher a data à mão</label>
+    <label class="opt"><input type="checkbox" id="optFooter" checked> Tirar a data do rodapé “Impresso em…”</label>
+  </div>
+</section>
+
+<div class="list" id="list" aria-live="polite"></div>
+
+<p class="foot-note">Tudo acontece no seu computador: o PDF não é enviado para nenhum servidor.</p>
+</main>
+
+<footer class="mq-foot" data-componente="rodape"></footer>
+</body>
+</html>

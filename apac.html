@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APAC exames de alto custo | MarquiAPS</title>
+<link rel="stylesheet" href="css/base/fontes.css">
+<link rel="stylesheet" href="css/base/marca.css">
+<link rel="stylesheet" href="css/base/estrutura.css">
+<link rel="stylesheet" href="css/paginas/requisicoes/comum.css">
+<link rel="stylesheet" href="css/paginas/requisicoes/apac.css">
+<script src="assets/vendor/pdfjs/pdf.min.js"></script>
+<script type="module" src="js/requisicoes/apac/app.js"></script>
+<link rel="stylesheet" href="css/base/visual.css">
+</head>
+<body>
+<header class="mq-top" data-componente="cabecalho"></header>
+<div class="bar"><div class="bar-in">
+  <h1>APAC · Exames de alto custo<small>Laudo para solicitação/autorização de procedimento ambulatorial · códigos SIGTAP</small></h1>
+  <span class="sp"></span>
+  <span class="msg" id="msg" aria-live="polite"></span>
+  <button id="bSave" title="Guarda estabelecimento, município e profissional solicitante neste computador">Salvar dados da unidade</button>
+  <button id="bNew">Nova paciente</button>
+  <button id="bPdf" title="Gera um PDF A4 pronto para imprimir">Baixar PDF</button>
+  <button id="bPrint" class="pri">Imprimir</button>
+</div></div>
+
+<main id="form">
+<section class="imp">
+  <h2><span>Importar</span>Puxar dados do laudo do e-SUS PEC</h2>
+  <label class="drop" id="drop" for="pdfIn">
+    <input type="file" id="pdfIn" accept="application/pdf,.pdf">
+    <b>Escolher o PDF do laudo</b> ou arrastar o arquivo para cá
+    <small>O arquivo é lido só neste computador; nada é enviado para a internet.</small>
+  </label>
+  <div id="impRes" hidden></div>
+</section>
+
+<section>
+  <h2><span>Solicitante</span>Estabelecimento de saúde solicitante</h2>
+  <div class="g">
+    <label class="f c9"><b class="req">Estabelecimento</b><select id="estSel"></select></label>
+    <label class="f c3"><b>CNES</b><input data-f="cnes" data-num inputmode="numeric" maxlength="7" id="cnes"></label>
+    <label class="f c12" data-when="estOut"><b>Nome do estabelecimento</b><input data-f="estout"></label>
+  </div>
+</section>
+
+<section>
+  <h2><span>Paciente</span>Identificação do paciente</h2>
+  <div class="g">
+    <label class="f c9"><b class="req">Nome do paciente</b><input data-f="nome"></label>
+    <label class="f c3"><b>Nº do prontuário</b><input data-f="pront"></label>
+    <label class="f c4"><b class="req">Cartão Nacional de Saúde (CNS)</b><input data-f="cns" data-num inputmode="numeric" maxlength="15" placeholder="15 dígitos"></label>
+    <label class="f c4"><b class="req">Data de nascimento</b><input type="date" id="nasc"></label>
+    <div class="f c4" style="display:flex;flex-direction:column;gap:4px;font-size:13px"><b class="req">Sexo</b>
+      <div class="opts"><label class="opt sm"><input type="radio" name="sexo" id="sF">Feminino</label><label class="opt sm"><input type="radio" name="sexo" id="sM">Masculino</label></div></div>
+    <label class="f c8"><b class="req">Nome da mãe ou responsável</b><input data-f="mae"></label>
+    <label class="f c2"><b>DDD</b><input data-f="ddd" data-num inputmode="numeric" maxlength="2" value="14"></label>
+    <label class="f c2"><b>Telefone</b><input data-f="tel" data-num inputmode="numeric" maxlength="9" placeholder="Só números"></label>
+    <label class="f c12"><b class="req">Endereço (rua, nº, bairro)</b><input data-f="end"></label>
+    <label class="f c5"><b class="req">Município de residência</b><input data-f="mun" value="São Manuel"></label>
+    <label class="f c3"><b>Cód. IBGE do município</b><input data-f="ibge" data-num inputmode="numeric" maxlength="7"></label>
+    <label class="f c2"><b>UF</b><input data-f="uf" value="SP" maxlength="2"></label>
+    <label class="f c2"><b>CEP</b><input data-f="cep" data-num inputmode="numeric" maxlength="8"></label>
+  </div>
+</section>
+
+<section>
+  <h2><span>Procedimentos</span>Exames solicitados</h2>
+  <p class="note" style="margin-bottom:12px">Escolha o exame e o código SIGTAP entra sozinho. O primeiro exame vai como procedimento principal (campo 15) e os demais como secundários (campos 18 a 32). Cabem até 6 procedimentos no laudo.</p>
+  <div class="exams" id="exams"></div>
+  <div style="margin-top:10px"><button class="link" id="addEx" type="button">+ adicionar outro exame</button></div>
+  <div class="bad" id="tooMany" hidden></div>
+</section>
+
+<section>
+  <h2><span>Justificativa</span>Justificativa do(s) procedimento(s)</h2>
+  <div class="g">
+    <label class="f c12"><b class="req">Descrição do diagnóstico</b><input data-f="diag"></label>
+    <label class="f c4"><b class="req">CID-10 principal</b><input data-f="cid1" placeholder="Ex.: R51"></label>
+    <label class="f c4"><b>CID-10 secundário</b><input data-f="cid2"></label>
+    <label class="f c4"><b>CID-10 causas associadas</b><input data-f="cid3"></label>
+    <label class="f c12"><b class="req">Observações (história clínica, exame físico, exames anteriores)</b><textarea data-f="obs" rows="5" placeholder="Ex.: Cefaleia progressiva há 3 meses, sem melhora com analgésicos. Exame neurológico sem déficit focal."></textarea></label>
+  </div>
+</section>
+
+<section>
+  <h2><span>Solicitação</span>Profissional solicitante</h2>
+  <div class="g">
+    <label class="f c8"><b class="req">Nome do profissional solicitante</b><input data-f="prof"></label>
+    <label class="f c4"><b class="req">Data da solicitação</b><input type="date" id="dsol"></label>
+    <div class="f c4" style="display:flex;flex-direction:column;gap:4px;font-size:13px"><b>Documento</b>
+      <div class="opts"><label class="opt sm"><input type="radio" name="doc" id="dCNS" checked>CNS</label><label class="opt sm"><input type="radio" name="doc" id="dCPF">CPF</label></div></div>
+    <label class="f c8"><b class="req">Nº do documento (CNS/CPF) do profissional</b><input data-f="profdoc" data-num inputmode="numeric" maxlength="15" id="profdoc"></label>
+  </div>
+  <details style="margin-top:14px"><summary class="note" style="cursor:pointer">Estabelecimento executante (opcional, normalmente preenchido pela regulação)</summary>
+    <div class="g" style="margin-top:10px">
+      <label class="f c9"><b>Nome fantasia do executante</b><input data-f="exec"></label>
+      <label class="f c3"><b>CNES do executante</b><input data-f="execcnes" data-num inputmode="numeric" maxlength="7"></label>
+    </div>
+  </details>
+</section>
+</main>
+
+<div id="pending"></div>
+
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="dlg">
+    <h3 id="mTitle">Exame com contraste</h3>
+    <p id="mText"><b>Não ofertado pelo município.</b> Deseja prosseguir com o pedido de exame com contraste?</p>
+    <p class="note" id="mExam"></p>
+    <div class="acts"><button id="mNo">Não, voltar</button><button class="pri" id="mYes">Sim, prosseguir</button></div>
+  </div>
+</div>
+
+<div id="print">
+  <div class="page"><div class="sheet" id="sh"><img alt="" src="assets/formularios/apac-laudo.png"></div></div>
+</div>
+<footer class="mq-foot" data-componente="rodape"></footer>
+</body>
+</html>

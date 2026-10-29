@@ -1,0 +1,10 @@
+/* Paleta e tipografia da marca Marqui — altere aqui as cores e fontes de todo o site */
+:root{
+  --mq-rosa-claro:#fff1f7; --mq-rosa-fundo:#fff7fb; --mq-rosa:#f5a6c8; --mq-rosa-forte:#d85f99; --mq-rosa-escuro:#b8457c;
+  --mq-vinho:#43192e; --mq-tinta:#3b2130; --mq-acento:#c2477f; --mq-vinho-medio:#7a2f55; --mq-texto:#4a4a4a; --mq-muted:#76606b; --mq-borda:#f1d5e3; --mq-branco:#ffffff;
+  --mq-sombra:0 10px 25px rgba(122,47,85,.08);
+  --mq-display:'TAN Whistling','Playfair Display',Georgia,serif;
+  --mq-body:'Caviar Dreams','Inter',Arial,Helvetica,sans-serif;
+  --mq-mono:'Calling Code',ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}

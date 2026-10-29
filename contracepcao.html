@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Contracepção APS | MarquiAPS</title>
+
+  <link rel="stylesheet" href="css/base/fontes.css" />
+  <link rel="stylesheet" href="css/base/marca.css" />
+  <link rel="stylesheet" href="css/base/estrutura.css" />
+  <link rel="stylesheet" href="css/base/sistemas.css" />
+  <link rel="stylesheet" href="css/paginas/contracepcao.css" />
+  <script type="module" src="js/contracepcao/app.js"></script>
+<link rel="stylesheet" href="css/base/visual.css">
+</head>
+
+<body>
+
+  <header class="mq-top" data-componente="cabecalho"></header>
+  <main class="container">
+
+    <section class="program-area">
+      <div class="sistema-interno">
+
+        <div class="contracepcao-app">
+
+          <div class="app-header">
+            <div class="app-header-content">
+              <h2>EscolhaSegura APS</h2>
+              <p>
+                Programa de apoio à equipe de enfermagem para escolha de método contraceptivo,
+                com triagem de contraindicações, disponibilidade local e saída em SOAP para o PEC.
+              </p>
+            </div>
+          </div>
+
+          <div class="alert-top">
+            <strong>Aviso:</strong> este sistema é um apoio à decisão. A prescrição, dispensação,
+            administração e encaminhamento devem seguir protocolo municipal, normas do serviço
+            e avaliação profissional.
+          </div>
+
+          <nav class="tabs">
+            <button class="tab-button active" data-tab="consulta">1. Consulta e triagem</button>
+            <button class="tab-button" data-tab="sus">2. Disponível no SUS/Município</button>
+            <button class="tab-button" data-tab="resultado">3. Resultado</button>
+            <button class="tab-button" data-tab="orientacoes">Orientações rápidas</button>
+          </nav>
+
+          <section id="consulta" class="tab active">
+            <div class="grid">
+
+              <div class="card col-12">
+                <h2>Dados da consulta</h2>
+
+                <div class="row">
+                  <div class="field span-4">
+                    <label>Motivo da consulta</label>
+                    <select id="motivo">
+                      <option value="">Selecione</option>
+                      <option>Iniciar método contraceptivo</option>
+                      <option>Trocar método contraceptivo</option>
+                      <option>Renovar método em uso</option>
+                      <option>Contracepção de emergência</option>
+                      <option>Pós-parto / amamentação</option>
+                      <option>Pós-abortamento</option>
+                      <option>Desejo de DIU</option>
+                      <option>Desejo de Implanon</option>
+                      <option>Queixa ou efeito adverso com método atual</option>
+                    </select>
+                  </div>
+
+                  <div class="field span-4">
+                    <label>Idade</label>
+                    <input id="idade" type="number" min="9" max="60" placeholder="Ex.: 28" />
+                  </div>
+
+                  <div class="field span-4">
+                    <label>DUM</label>
+                    <input id="dum" type="date" />
+                  </div>
+
+                  <div class="field span-4">
+                    <label>Ciclo menstrual</label>
+                    <select id="ciclo">
+                      <option value="">Selecione</option>
+                      <option>Regular</option>
+                      <option>Irregular</option>
+                      <option>Amenorreia</option>
+                      <option>Não sabe informar</option>
+                    </select>
+                  </div>
+
+                  <div class="field span-4">
+                    <label>Relação desprotegida nos últimos 5 dias?</label>
+                    <select id="rs5">
+                      <option value="">Selecione</option>
+                      <option value="sim">Sim</option>
+                      <option value="nao">Não</option>
+                      <option value="incerto">Incerto</option>
+                    </select>
+                  </div>
+
+                  <div class="field span-4">
+                    <label>Relação desprotegida desde a última menstruação?</label>
+                    <select id="rsdum">
+                      <option value="">Selecione</option>
+                      <option value="sim">Sim</option>
+                      <option value="nao">Não</option>
+                      <option value="incerto">Incerto</option>
+                    </select>
+                  </div>
+
+                  <div class="field span-4">
+                    <label>Deseja engravidar nos próximos 12 meses?</label>
+                    <select id="desejoGestacao">
+                      <option value="">Selecione</option>
+                      <option value="sim">Sim</option>
+                      <option value="nao">Não</option>
+                      <option value="incerto">Incerto</option>
+                    </select>
+                  </div>
+
+                  <div class="field span-4">
+                    <label>Amamentando?</label>
+                    <select id="amamentando">
+                      <option value="">Selecione</option>
+                      <option value="sim">Sim</option>
+                      <option value="nao">Não</option>
+                    </select>
+                  </div>
+
+                  <div class="field span-4">
+                    <label>Semanas pós-parto</label>
+                    <input id="semanasParto" type="number" min="0" max="260" placeholder="Se não se aplica, deixe em branco" />
+                  </div>
+
+                  <div class="field span-6">
+                    <label>Método atual</label>
+                    <input id="metodoAtual" type="text" placeholder="Ex.: nenhum, pílula, injetável, preservativo..." />
+                  </div>
+
+                  <div class="field span-6">
+                    <label>Preferência da paciente</label>
+                    <select id="preferencia">
+                      <option value="">Selecione</option>
+                      <option value="diario">Método diário</option>
+                      <option value="mensal">Método mensal</option>
+                      <option value="trimestral">Método trimestral</option>
+                      <option value="longa">Método de longa duração</option>
+                      <option value="semHormônio">Evitar hormônio</option>
+                      <option value="emergencia">Contracepção de emergência</option>
+                      <option value="indiferente">Sem preferência / quer orientação</option>
+                    </select>
+                  </div>
+
+                  <div class="field span-12">
+                    <label>Observações livres</label>
+                    <textarea id="obs" placeholder="Ex.: dificuldade de lembrar comprimido, medo de procedimento, desejo de amenorreia, efeitos prévios..."></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card col-12">
+                <h2>Triagem de segurança</h2>
+
+                <div class="row">
+                  <div class="field span-3">
+                    <label>PA sistólica</label>
+                    <input id="pas" type="number" min="70" max="260" placeholder="Ex.: 120" />
+                  </div>
+
+                  <div class="field span-3">
+                    <label>PA diastólica</label>
+                    <input id="pad" type="number" min="40" max="160" placeholder="Ex.: 80" />
+                  </div>
+
+                  <div class="field span-3">
+                    <label>Tabagismo</label>
+                    <select id="tabagismo">
+                      <option value="">Selecione</option>
+                      <option value="nao">Não</option>
+                      <option value="sim">Sim</option>
+                    </select>
+                  </div>
+
+                  <div class="field span-3">
+                    <label>Cigarros/dia, se tabagista</label>
+                    <input id="cigarrosDia" type="number" min="0" max="80" placeholder="Ex.: 10" />
+                  </div>
+                </div>
+
+                <h3>Marque condições presentes</h3>
+
+                <div class="checkbox-grid">
+                  <label class="check-item"><input type="checkbox" id="enxaquecaAura" /><span>Enxaqueca com aura</span></label>
+                  <label class="check-item"><input type="checkbox" id="trombose" /><span>História de trombose/TEP</span></label>
+                  <label class="check-item"><input type="checkbox" id="avc" /><span>AVC ou doença cardiovascular importante</span></label>
+                  <label class="check-item"><input type="checkbox" id="hasGrave" /><span>HAS grave ou de difícil controle</span></label>
+                  <label class="check-item"><input type="checkbox" id="dmVascular" /><span>Diabetes com complicação vascular</span></label>
+                  <label class="check-item"><input type="checkbox" id="cancerMamaAtual" /><span>Câncer de mama atual</span></label>
+                  <label class="check-item"><input type="checkbox" id="cancerMamaPrevio" /><span>Câncer de mama prévio</span></label>
+                  <label class="check-item"><input type="checkbox" id="sangramentoAnormal" /><span>Sangramento uterino anormal sem investigação</span></label>
+                  <label class="check-item"><input type="checkbox" id="doencaHepatica" /><span>Doença hepática grave</span></label>
+                  <label class="check-item"><input type="checkbox" id="anticonvulsivante" /><span>Uso de anticonvulsivante indutor enzimático</span></label>
+                  <label class="check-item"><input type="checkbox" id="rifampicina" /><span>Uso de rifampicina/rifapentina</span></label>
+                  <label class="check-item"><input type="checkbox" id="bariatricaDisabsortiva" /><span>Cirurgia bariátrica disabsortiva</span></label>
+                  <label class="check-item"><input type="checkbox" id="lupusSaf" /><span>Lúpus com SAF/anticorpos antifosfolípides</span></label>
+                  <label class="check-item"><input type="checkbox" id="imobilizacao" /><span>Imobilização prolongada/cirurgia maior</span></label>
+                  <label class="check-item"><input type="checkbox" id="suspeitaGravidez" /><span>Suspeita de gravidez</span></label>
+                  <label class="check-item"><input type="checkbox" id="istAtual" /><span>IST atual, cervicite purulenta ou DIP atual</span></label>
+                  <label class="check-item"><input type="checkbox" id="dorPelvica" /><span>Dor pélvica importante/investigação pendente</span></label>
+                  <label class="check-item"><input type="checkbox" id="alergiaMetodo" /><span>Alergia conhecida a algum componente</span></label>
+                </div>
+              </div>
+
+              <div class="card col-12">
+                <h2>Preferências e aconselhamento</h2>
+
+                <div class="checkbox-grid">
+                  <label class="check-item"><input type="checkbox" id="aceitaIrregularidade" /><span>Aceita possibilidade de sangramento irregular</span></label>
+                  <label class="check-item"><input type="checkbox" id="querDiscreto" /><span>Deseja método discreto</span></label>
+                  <label class="check-item"><input type="checkbox" id="querMenosMenstruacao" /><span>Deseja menstruar menos</span></label>
+                  <label class="check-item"><input type="checkbox" id="dificuldadeLembrar" /><span>Tem dificuldade de lembrar comprimido diário</span></label>
+                  <label class="check-item"><input type="checkbox" id="riscoIST" /><span>Risco de IST / múltiplas parcerias / parceria nova</span></label>
+                  <label class="check-item"><input type="checkbox" id="violenciaSexual" /><span>Suspeita/relato de violência sexual</span></label>
+                </div>
+
+                <div class="buttons">
+                  <button class="primary" data-acao="gerar">Gerar resultado</button>
+                  <button class="secondary" data-acao="limpar">Limpar formulário</button>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <section id="sus" class="tab">
+            <div class="grid">
+              <div class="card col-12">
+                <h2>Disponível no SUS / Município</h2>
+
+                <p class="small">
+                  Lista configurada com os métodos informados. O resultado cruza elegibilidade clínica
+                  com disponibilidade local.
+                </p>
+
+                <table class="sus-table">
+                  <thead>
+                    <tr>
+                      <th>Método</th>
+                      <th>Apresentação disponível</th>
+                      <th>Tipo</th>
+                      <th>Acesso local</th>
+                      <th>Observações</th>
+                    </tr>
+                  </thead>
+
+                  <tbody id="susTableBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <section id="resultado" class="tab">
+            <div class="grid">
+
+              <div class="card col-8">
+                <div style="display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:12px; flex-wrap:wrap;">
+                  <h2>Resultado da avaliação</h2>
+                  <button class="primary" data-acao="gerar">Atualizar resultado</button>
+                </div>
+
+                <div id="painelResumo" class="info">
+                  Preencha a consulta e clique em “Gerar resultado”.
+                </div>
+
+                <div id="alertas"></div>
+
+                <h3>Métodos avaliados</h3>
+
+                <div id="metodosResultado"></div>
+              </div>
+
+              <div class="card col-4">
+                <h2>Resumo rápido</h2>
+                <div id="resumoRapido" class="small">Nenhum resultado gerado ainda.</div>
+
+                <h3>Prioridade sugerida</h3>
+                <div id="prioridade" class="small">Aguardando preenchimento.</div>
+              </div>
+
+              <div class="card col-12">
+                <div style="display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:12px; flex-wrap:wrap;">
+                  <h2>SOAP para copiar no PEC</h2>
+                  <button class="secondary" data-acao="copiar">Copiar SOAP</button>
+                </div>
+
+                <div id="soap" class="soap-box">Preencha os dados e gere o resultado.</div>
+              </div>
+
+            </div>
+          </section>
+
+          <section id="orientacoes" class="tab">
+            <div class="grid">
+              <div class="card col-6">
+                <h2>Orientações gerais para paciente</h2>
+
+                <ul>
+                  <li>Preservativo deve ser ofertado mesmo quando outro método for escolhido, especialmente para prevenção de IST.</li>
+                  <li>Métodos com estrogênio exigem triagem de PA, tabagismo, enxaqueca com aura, trombose, AVC e puerpério.</li>
+                  <li>Métodos só com progestagênio podem causar sangramento irregular ou amenorreia.</li>
+                  <li>Contracepção de emergência deve ser usada o quanto antes após relação desprotegida ou falha do método.</li>
+                  <li>DIU de cobre e Implanon aparecem como opções, mas neste município exigem encaminhamento.</li>
+                </ul>
+              </div>
+
+              <div class="card col-6">
+                <h2>Sinais de alerta</h2>
+
+                <ul>
+                  <li>Dor torácica, falta de ar, dor/inchaço em perna, déficit neurológico, cefaleia intensa nova.</li>
+                  <li>Sangramento intenso ou persistente com sinais de anemia/instabilidade.</li>
+                  <li>Dor pélvica importante, febre, corrimento purulento.</li>
+                  <li>Atraso menstrual ou suspeita de gravidez.</li>
+                  <li>PA muito elevada ou sintomas de crise hipertensiva.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  
+
+  <footer class="mq-foot" data-componente="rodape"></footer>
+
+</body>
+</html>

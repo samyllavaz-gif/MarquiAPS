@@ -1,0 +1,28 @@
+/* Receita sem data: área para soltar os PDFs, opções e um cartão por receita com prévia */
+section{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 18px 20px}
+section>h2 span{font:700 11px var(--ui);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.intro{margin:0 0 14px;color:var(--muted);max-width:62ch}
+.drop{display:grid;gap:4px;justify-items:center;text-align:center;border:2px dashed var(--line);border-radius:10px;padding:28px 16px;cursor:pointer;background:var(--soft);color:var(--muted);font-size:14px}
+.drop>b{color:var(--accent);font-size:16px}
+.drop.over,.drop:hover,.drop:focus-visible{border-color:var(--accent);background:var(--accent-soft);outline:none}
+.opts-receita{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.opt{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:6px 12px;cursor:pointer;font-size:14px}
+.opt input{margin:0;accent-color:var(--accent)}
+.list{display:grid;gap:14px}
+.list:empty{display:none}
+.item{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;gap:12px;min-width:0}
+.item-head{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:space-between}
+.fname{font-family:var(--mono);font-size:13px;word-break:break-all;min-width:0}
+.pill{font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;white-space:nowrap;background:var(--soft);color:var(--muted)}
+.pill.ok{background:var(--accent-soft);color:var(--accent)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.found{font-size:13px;color:var(--muted);margin:0;padding-left:18px}
+.found li{word-break:break-word}
+.found s{color:var(--fg)}
+.prev{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:#fff}
+.prev canvas{display:block;width:100%;height:auto;min-width:520px}
+.actions{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:inherit;font-size:14px;border-radius:7px;padding:8px 14px;text-decoration:none;display:inline-block;border:1px solid var(--accent);color:var(--accent);background:transparent}
+.err{color:var(--bad);margin:0}
+.foot-note{font-size:13px;color:var(--muted);margin:0}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}

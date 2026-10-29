@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Densitometria | MarquiAPS</title>
+<link rel="stylesheet" href="css/base/fontes.css">
+<link rel="stylesheet" href="css/base/marca.css">
+<link rel="stylesheet" href="css/base/estrutura.css">
+<link rel="stylesheet" href="css/paginas/requisicoes/comum.css">
+<link rel="stylesheet" href="css/paginas/requisicoes/densitometria.css">
+<script type="module" src="js/requisicoes/densitometria/app.js"></script>
+<link rel="stylesheet" href="css/base/visual.css">
+</head>
+<body>
+<header class="mq-top" data-componente="cabecalho"></header>
+<div class="bar"><div class="bar-in">
+  <h1>Pedido de Densitometria<small>BPA-I + Pedido de exame do HC · fluxo municipal</small></h1>
+  <span class="sp"></span>
+  <span class="msg" id="msg" aria-live="polite"></span>
+  <button id="bSave" title="Guarda clínica, serviço, médico e município neste computador">Salvar dados da unidade</button>
+  <button id="bNew">Nova paciente</button>
+  <button id="bPdf" title="Gera um PDF A4 pronto para imprimir">Baixar PDF</button>
+  <button id="bPrint" class="pri">Imprimir</button>
+</div></div>
+
+<main id="form">
+<section>
+  <h2><span>Documentos</span>O que imprimir</h2>
+  <div class="pick">
+    <label class="card"><input type="checkbox" id="docB" checked><span><b>Laudo BPA-I</b><small>Laudo médico para solicitação de exames · Radiodiagnóstico</small></span></label>
+    <label class="card"><input type="checkbox" id="docH" checked><span><b>Pedido de exame do HC</b><small>HC-FMB Botucatu · SSHC 14.786-9</small></span></label>
+  </div>
+</section>
+
+<section>
+  <h2><span>Paciente</span>Dados da paciente</h2>
+  <div class="g">
+    <label class="f c8"><b class="req">Nome completo</b><input data-f="nome"></label>
+    <label class="f c4"><b>RG</b><input data-f="rg"></label>
+    <label class="f c3"><b class="req">CPF</b><input data-f="cpf" data-num inputmode="numeric" maxlength="11" placeholder="11 dígitos"></label>
+    <label class="f c3"><b class="req">Data de nascimento</b><input type="date" id="nasc"></label>
+    <label class="f c2"><b>Idade</b><input data-f="idade" data-num inputmode="numeric" maxlength="3" id="idade"></label>
+    <div class="f c4" style="display:flex;flex-direction:column;gap:4px;font-size:13px"><b class="req">Sexo</b>
+      <div class="opts"><label class="opt sm"><input type="radio" name="sexo" value="F" id="sF">Fem</label><label class="opt sm"><input type="radio" name="sexo" value="M" id="sM">Masc</label></div></div>
+    <label class="f c8"><b class="req">Nome da mãe</b><input data-f="mae"></label>
+    <label class="f c4"><b>Telefone</b><input data-f="tel" placeholder="(14) 99999-9999"></label>
+    <label class="f c12"><b class="req">Endereço completo</b><input data-f="endereco" placeholder="Rua, número, complemento, bairro"></label>
+    <label class="f c5"><b class="req">Município</b><input data-f="municipio"></label>
+    <label class="f c2"><b>UF</b><input data-f="uf" value="SP" maxlength="2"></label>
+    <label class="f c3"><b>CEP</b><input data-f="cep" data-num inputmode="numeric" maxlength="8" placeholder="8 dígitos"></label>
+  </div>
+  <div class="q" style="margin-top:14px;border-top:1px solid var(--line);padding-top:12px"><p>Convênio <small>(campo do BPA-I)</small></p>
+    <div class="opts"><label class="opt"><input type="radio" name="conv" id="cvN" checked>Não</label><label class="opt"><input type="radio" name="conv" id="cvS">Sim</label></div>
+    <label class="f" data-when="cvS" style="max-width:420px"><b>Nome do convênio</b><input data-f="convnome"></label>
+  </div>
+</section>
+
+<section>
+  <h2><span>Atendimento</span>Atendimento e solicitação</h2>
+  <div class="g">
+    <label class="f c4"><b>Clínica</b><input data-f="clinica" placeholder="Ex.: Clínica geral"></label>
+    <label class="f c4"><b>Serviço</b><input data-f="servico"></label>
+    <label class="f c4"><b class="req">Data de atendimento</b><input type="date" id="dat"></label>
+  </div>
+  <div class="q" style="margin-top:14px;border-top:1px solid var(--line);padding-top:12px"><p class="req">Procedimento <small>(BPA-I)</small></p>
+    <div class="opts"><label class="opt"><input type="checkbox" id="pDens" checked>02.04.06.002-8 · Densitometria óssea duoenergética de coluna (vértebras lombares + colo de fêmur)</label><label class="opt"><input type="checkbox" id="pBio">02.01.01.054-2 · Biópsia percutânea orientada por TC, US ou RX</label></div></div>
+  <div class="q"><p>Pedido do HC</p>
+    <div class="opts"><label class="opt sm"><input type="radio" name="orig" id="oAmb" checked>Ambulatório</label><label class="opt sm"><input type="radio" name="orig" id="oTri">Triagem</label><label class="opt sm"><input type="radio" name="orig" id="oPS">Pronto Socorro</label>
+      <span style="width:12px"></span>
+      <label class="opt sm"><input type="radio" name="car" id="kPre">Pré-operatório</label><label class="opt sm"><input type="radio" name="car" id="kRot" checked>Rotina</label><label class="opt sm"><input type="radio" name="car" id="kEme">Emergência</label></div>
+    <div class="g">
+      <label class="f c4"><b>Enfermaria</b><input data-f="enfermaria"></label>
+      <label class="f c2"><b>Leito</b><input data-f="leito"></label>
+    </div>
+    <p class="note" style="margin-top:4px"><b>Convênio no pedido do HC</b></p>
+    <div class="opts"><label class="opt sm"><input type="radio" name="hconv" id="hSUS" checked>SUS</label><label class="opt sm"><input type="radio" name="hconv" id="hARE">ARE</label><label class="opt sm"><input type="radio" name="hconv" id="hCS">CS-Escola</label><label class="opt sm"><input type="radio" name="hconv" id="hOut">Outro</label>
+      <input data-f="hconvout" data-when="hOut" style="max-width:200px" placeholder="Qual?" aria-label="Outro convênio"></div>
+    <p class="note" style="margin-top:6px"><b>Exames solicitados</b> (tabela do pedido do HC)</p>
+    <div class="tw"><table class="ex"><thead><tr><th>Tipo de exame</th><th>Material colhido</th><th>Topografia do exame</th></tr></thead><tbody id="exBody"></tbody></table></div>
+    <div><button class="link" id="moreRows" type="button">+ mostrar mais linhas</button></div>
+  </div>
+</section>
+
+<section>
+  <h2><span>Justificativa</span>Dados clínicos</h2>
+  <div class="g">
+    <label class="f c8"><b class="req">Hipótese diagnóstica</b><input data-f="hipotese" list="hipList" placeholder="Digite ou escolha uma sugestão"></label>
+    <label class="f c4"><b class="req">CID-10</b><input data-f="cid" list="cidList" placeholder="Ex.: M81.0"></label>
+  </div>
+  <datalist id="hipList"></datalist><datalist id="cidList"></datalist>
+  <div class="q" style="margin-top:14px;border-top:1px solid var(--line);padding-top:12px"><p>Fatores de risco e indicação <small>(entram no início do resumo clínico)</small></p>
+    <div class="opts" id="riskOpts"></div></div>
+  <div class="q">
+    <label class="f"><b>Resumo clínico / exame físico</b><textarea data-f="resumo" placeholder="Ex.: Paciente em pós-menopausa há 8 anos, sem reposição hormonal. Nega fraturas prévias."></textarea></label>
+    <p class="preview" id="resPrev"></p>
+  </div>
+  <div class="q">
+    <label class="f"><b>Exames realizados e resultados</b><textarea data-f="exames" placeholder="Ex.: Densitometria de 2023: T-score coluna lombar -2,1; colo de fêmur -1,8."></textarea></label>
+  </div>
+  <div class="q">
+    <label class="f"><b>Medicação atual</b> <small style="font-weight:400">(pedido do HC)</small><input data-f="medicacao"></label>
+  </div>
+  <div class="q"><p>Condições <small>(pedido do HC)</small></p>
+    <div class="opts"><label class="opt sm"><input type="checkbox" id="cAle">Alergias</label><label class="opt sm"><input type="checkbox" id="cPro">Próteses metálicas</label><label class="opt sm"><input type="checkbox" id="cRen">Alteração de função renal</label><label class="opt sm"><input type="checkbox" id="cBio">Biópsia prévia</label><label class="opt sm"><input type="checkbox" id="cGra">Gravidez</label></div>
+    <label class="f"><b>Especificar</b><input data-f="condobs" placeholder="Ex.: alergia a dipirona; prótese de quadril à direita"></label>
+    <div class="warn" data-when="cGra">Gravidez é contraindicação para densitometria óssea. Confirme antes de enviar o pedido.</div>
+    <div class="warn" data-when="cPro">Próteses metálicas na coluna lombar ou no quadril podem impedir a leitura dessa região. Informe o lado e o local em “Especificar”.</div>
+  </div>
+</section>
+
+<section>
+  <h2><span>Médico</span>Médico solicitante</h2>
+  <div class="g">
+    <label class="f c8"><b class="req">Nome do médico</b><input data-f="medico"></label>
+    <label class="f c4"><b class="req">CPF do médico</b><input data-f="cpfmed" data-num inputmode="numeric" maxlength="11" placeholder="11 dígitos"></label>
+    <label class="f c4"><b class="req">Data do laudo/pedido</b><input type="date" id="dlaudo"></label>
+  </div>
+</section>
+</main>
+
+<div id="pending"></div>
+
+<div id="print">
+  <div class="page" id="pgB"><div class="sheet" id="shB" style="width:598.805pt;height:843.475pt"><img alt="" src="assets/formularios/densitometria-bpai.png"></div></div>
+  <div class="page" id="pgH"><div class="sheet" id="shH" style="width:595.3pt;height:841.9pt"><img alt="" src="assets/formularios/densitometria-pedido-hc.png"></div></div>
+</div>
+<footer class="mq-foot" data-componente="rodape"></footer>
+</body>
+</html>

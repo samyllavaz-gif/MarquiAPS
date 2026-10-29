@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mamografia e citopatológico | MarquiAPS</title>
+<link rel="stylesheet" href="css/base/fontes.css">
+<link rel="stylesheet" href="css/base/marca.css">
+<link rel="stylesheet" href="css/base/estrutura.css">
+<link rel="stylesheet" href="css/paginas/requisicoes/comum.css">
+<link rel="stylesheet" href="css/paginas/requisicoes/mamografia.css">
+<script src="assets/vendor/pdfjs/pdf.min.js"></script>
+<script type="module" src="js/requisicoes/mamografia/app.js"></script>
+<link rel="stylesheet" href="css/base/visual.css">
+</head>
+<body>
+<header class="mq-top" data-componente="cabecalho"></header>
+<div class="bar"><div class="bar-in">
+  <h1>Mamografia e Citopatológico<small>SISCAN · requisições de exames</small></h1>
+  <span class="sp"></span>
+  <span class="msg" id="msg" aria-live="polite"></span>
+  <button id="bSave" title="Guarda os dados da unidade e o responsável neste computador">Salvar dados da unidade</button>
+  <button id="bNew">Nova paciente</button>
+  <button id="bPdf" title="Gera um PDF A4 pronto para imprimir">Baixar PDF</button>
+  <button id="bPrint" class="pri">Imprimir</button>
+</div></div>
+
+<main id="form">
+<section class="imp">
+  <h2><span>Importar</span>Puxar dados do e-SUS PEC</h2>
+  <label class="drop" id="drop" for="pdfIn">
+    <input type="file" id="pdfIn" accept="application/pdf,.pdf" multiple>
+    <b>Escolher os PDFs</b> ou arrastar para cá
+    <small>Aceita a <b>solicitação de exame</b> e a tela de <b>informações do cidadão</b> do PEC, uma ou as duas juntas. O arquivo é lido só neste computador.</small>
+  </label>
+  <div id="impRes" hidden></div>
+</section>
+<section>
+  <h2><span>Exames</span>Quais requisições imprimir?</h2>
+  <div class="pick">
+    <label class="card m"><input type="checkbox" id="exM" checked><span><b>Mamografia</b><small>Formulário nº 332 · frente e verso</small></span></label>
+    <label class="card c"><input type="checkbox" id="exC" checked><span><b>Citopatológico do colo do útero</b><small>Formulário nº 415 · frente (verso é do laboratório)</small><br><span class="verso"><input type="checkbox" id="verso" checked>Imprimir verso em branco</span></span></label>
+  </div>
+</section>
+
+<section>
+  <h2><span>Unidade</span>Unidade solicitante</h2>
+  <div class="g">
+    <label class="f c2"><b>UF</b><input data-f="uf" value="SP"></label>
+    <label class="f c3"><b>CNES</b><input data-f="cnes" data-num inputmode="numeric"></label>
+    <label class="f c7"><b>Unidade de Saúde</b><input data-f="unidade"></label>
+    <label class="f c3"><b>Código do município</b><input data-f="codmun" data-num inputmode="numeric"></label>
+    <label class="f c5"><b>Município</b><input data-f="municipio"></label>
+    <label class="f c4"><b>Prontuário</b><input data-f="prontuario"></label>
+  </div>
+</section>
+
+<section>
+  <h2><span>Paciente</span>Informações pessoais</h2>
+  <div class="g">
+    <label class="f c4"><b class="req">Cartão SUS</b><input data-f="cns" data-num inputmode="numeric" placeholder="15 dígitos"></label>
+    <label class="f c4"><b>CPF</b><input data-f="cpf" data-num inputmode="numeric" placeholder="11 dígitos"></label>
+    <label class="f c4"><b>Apelido</b><input data-f="apelido"></label>
+    <label class="f c12"><b class="req">Nome completo da paciente</b><input data-f="nome"></label>
+    <label class="f c8"><b class="req">Nome completo da mãe</b><input data-f="mae"></label>
+    <label class="f c4"><b>Nacionalidade</b><input data-f="nacionalidade" value="Brasileira"></label>
+    <label class="f c4"><b class="req">Data de nascimento</b><input type="date" id="nasc"></label>
+    <label class="f c2"><b class="req">Idade</b><input data-f="idade" data-num inputmode="numeric" id="idade"></label>
+  </div>
+  <div class="q" style="margin-top:14px"><p>Raça/cor</p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="raca" data-b="m:2 c:raca_branca">Branca</label><label class="opt"><input type="radio" name="raca" data-b="m:3 c:raca_preta">Preta</label><label class="opt"><input type="radio" name="raca" data-b="m:4 c:raca_parda">Parda</label><label class="opt"><input type="radio" name="raca" data-b="m:5 c:raca_amarela">Amarela</label><label class="opt"><input type="radio" name="raca" data-b="m:6 c:raca_indigena" id="rInd">Indígena</label>
+    </div>
+    <label class="f" data-when="rInd" style="max-width:260px"><b>Etnia</b><input data-f="etnia"></label>
+  </div>
+  <div class="q"><p>Escolaridade</p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="esc" data-b="m:7 c:esc_0">Analfabeta</label><label class="opt"><input type="radio" name="esc" data-b="m:8 c:esc_1">Fundamental incompleto</label><label class="opt"><input type="radio" name="esc" data-b="m:9 c:esc_2">Fundamental completo</label><label class="opt"><input type="radio" name="esc" data-b="m:10 c:esc_3">Médio completo</label><label class="opt"><input type="radio" name="esc" data-b="m:11 c:esc_4">Superior completo</label>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><span>Endereço</span>Dados residenciais</h2>
+  <div class="g">
+    <label class="f c9"><b>Logradouro</b><input data-f="logradouro"></label>
+    <label class="f c3"><b>Número</b><input data-f="numero"></label>
+    <label class="f c6"><b>Complemento</b><input data-f="complemento"></label>
+    <label class="f c4"><b>Bairro</b><input data-f="bairro"></label>
+    <label class="f c2"><b>UF</b><input data-f="uf_res" value="SP"></label>
+    <label class="f c3"><b>Código do município</b><input data-f="codmun_res" data-num inputmode="numeric"></label>
+    <label class="f c5"><b>Município</b><input data-f="mun_res"></label>
+    <label class="f c4"><b>CEP</b><input data-f="cep" data-num inputmode="numeric" placeholder="00000-000"></label>
+    <label class="f c2"><b>DDD</b><input data-f="ddd" data-num inputmode="numeric" value="14"></label>
+    <label class="f c4"><b>Telefone</b><input data-f="tel" data-num inputmode="numeric" placeholder="8 ou 9 dígitos"></label>
+    <label class="f c8"><b>Ponto de referência</b><input data-f="referencia"></label>
+  </div>
+</section>
+
+<!-- ===================== MAMOGRAFIA ===================== -->
+<section class="mam" id="secM">
+  <h2><span>Mamografia</span>Anamnese da mamografia</h2>
+  <div class="q"><p class="req">1. Tem nódulo ou caroço na mama?</p>
+    <div class="opts"><label class="opt"><input type="checkbox" data-b="m:12" data-grp="mq1">Sim, mama direita</label><label class="opt"><input type="checkbox" data-b="m:14" data-grp="mq1">Sim, mama esquerda</label><label class="opt"><input type="checkbox" data-b="m:16" data-grp="mq1" data-excl>Não</label></div></div>
+  <div class="q"><p class="req">2. Apresenta risco elevado para câncer de mama?</p>
+    <div class="opts"><label class="opt"><input type="radio" name="mq2" data-b="m:19">Sim</label><label class="opt"><input type="radio" name="mq2" data-b="m:20">Não</label><label class="opt"><input type="radio" name="mq2" data-b="m:21">Não sabe</label></div>
+    <p class="note">Risco elevado: parente de 1º grau com câncer de mama antes dos 50 anos, bilateral ou de ovário; câncer de mama masculino na família; lesão proliferativa com atipia ou neoplasia lobular in situ; história pessoal de câncer de mama.</p></div>
+  <div class="q"><p class="req">3. Antes desta consulta, teve as mamas examinadas por um profissional de saúde?</p>
+    <div class="opts"><label class="opt"><input type="radio" name="mq3" data-b="m:22">Sim</label><label class="opt"><input type="radio" name="mq3" data-b="m:23">Nunca foram examinadas</label><label class="opt"><input type="radio" name="mq3" data-b="m:24">Não sabe</label></div></div>
+  <div class="q"><p class="req">4. Fez mamografia alguma vez?</p>
+    <div class="opts"><label class="opt"><input type="radio" name="mq4" data-b="m:25" id="mq4s">Sim</label><label class="opt"><input type="radio" name="mq4" data-b="m:26">Não</label><label class="opt"><input type="radio" name="mq4" data-b="m:27">Não sabe</label></div>
+    <label class="f" data-when="mq4s" style="max-width:200px"><b>Ano da última mamografia</b><input data-f="mamo_ano" data-num inputmode="numeric" placeholder="aaaa"></label></div>
+  <div class="q"><p class="req">5. Fez radioterapia na mama ou no plastrão?</p>
+    <div class="opts"><label class="opt"><input type="checkbox" data-b="m:13" data-grp="mq5" id="mq5d">Sim, mama direita</label><label class="opt"><input type="checkbox" data-b="m:15" data-grp="mq5" id="mq5e">Sim, mama esquerda</label><label class="opt"><input type="checkbox" data-b="m:17" data-grp="mq5" data-excl>Não</label><label class="opt"><input type="checkbox" data-b="m:18" data-grp="mq5" data-excl>Não sabe</label></div>
+    <div class="g"><label class="f c3" data-when="mq5d"><b>Ano (direita)</b><input data-f="radio_d" data-num inputmode="numeric" placeholder="aaaa"></label><label class="f c3" data-when="mq5e"><b>Ano (esquerda)</b><input data-f="radio_e" data-num inputmode="numeric" placeholder="aaaa"></label></div></div>
+  <div class="q"><p class="req">6. Fez cirurgia de mama? Em que ano?</p>
+    <div class="opts"><label class="opt"><input type="checkbox" data-b="m:28" id="msemCir">Não fez cirurgia</label></div>
+    <div class="tw" data-when="!msemCir"><p class="note">Digite o ano na coluna da mama operada.</p><table class="cir"><thead><tr><th>Cirurgia</th><th>Mama direita</th><th>Mama esquerda</th></tr></thead><tbody id="cirBody"></tbody></table></div>
+  </div>
+</section>
+<section class="mam" id="secM2">
+  <h2><span>Mamografia</span>Indicação clínica</h2>
+  <div class="opts" style="margin-bottom:12px"><label class="opt"><input type="radio" name="mtipo" id="mtRas" checked>8. Mamografia de rastreamento</label><label class="opt"><input type="radio" name="mtipo" id="mtDia">7. Mamografia diagnóstica</label></div>
+  <div class="sub" data-when="mtRas">
+    <div class="opts"><label class="opt"><input type="radio" name="mras" data-b="m:137" id="mr8a">8a. População alvo (50 a 69 anos)</label><label class="opt"><input type="radio" name="mras" data-b="m:138">8b. Risco elevado (história familiar)</label><label class="opt"><input type="radio" name="mras" data-b="m:139">8c. Já tratada de câncer de mama</label></div>
+    <p class="note">Rastreamento é para mulheres sem sinais e sintomas. Mastalgia não é sinal de câncer de mama.</p>
+    <div class="warn" id="ageWarnM" hidden></div>
+  </div>
+  <div class="sub" data-when="mtDia" id="diag"></div>
+  <div class="g" style="margin-top:14px">
+    <label class="f c4"><b>Nº Protocolo</b><input data-f="m_protocolo" placeholder="Gerado pelo SISCAN (opcional)"></label>
+    <label class="f c4"><b>Número do exame</b><input data-f="nexame" data-num inputmode="numeric" placeholder="Preenchido pelo serviço"></label>
+  </div>
+</section>
+
+<!-- ===================== CITOPATOLÓGICO ===================== -->
+<section class="cit" id="secC">
+  <h2><span>Citopatológico</span>Anamnese do citopatológico</h2>
+  <div class="q"><p class="req">1. Motivo do exame</p>
+    <div class="opts"><label class="opt"><input type="radio" name="cmot" data-b="c:mot_ras" id="cmRas" checked>Rastreamento</label><label class="opt"><input type="radio" name="cmot" data-b="c:mot_rep">Repetição (exame alterado ASCUS/baixo grau)</label><label class="opt"><input type="radio" name="cmot" data-b="c:mot_seg">Seguimento (pós diagnóstico colposcópico/tratamento)</label></div>
+    <div class="warn" id="ageWarnC" hidden></div></div>
+  <div class="q"><p class="req">2. Fez o exame preventivo (Papanicolaou) alguma vez?</p>
+    <div class="opts"><label class="opt"><input type="radio" name="cq2" data-b="c:q2_sim" id="cq2s">Sim</label><label class="opt"><input type="radio" name="cq2" data-b="c:q2_nao">Não</label><label class="opt"><input type="radio" name="cq2" data-b="c:q2_ns">Não sabe</label></div>
+    <label class="f" data-when="cq2s" style="max-width:200px"><b>Ano do último exame</b><input data-f="ult_ano" data-num inputmode="numeric" placeholder="aaaa"></label></div>
+  <div class="q"><p class="req">3. Usa DIU?</p><div class="opts" data-yn="q3"></div></div>
+  <div class="q"><p class="req">4. Está grávida?</p><div class="opts" data-yn="q4"></div></div>
+  <div class="q"><p class="req">5. Usa pílula anticoncepcional?</p><div class="opts" data-yn="q5"></div></div>
+  <div class="q"><p class="req">6. Usa hormônio/remédio para tratar a menopausa?</p><div class="opts" data-yn="q6"></div></div>
+  <div class="q"><p class="req">7. Já fez tratamento por radioterapia?</p><div class="opts" data-yn="q7"></div></div>
+  <div class="q"><p class="req">8. Data da última menstruação (DUM)</p>
+    <div class="inl"><label class="f" data-when="!cq8ns"><b>Data</b><input type="date" id="dum"></label><label class="opt"><input type="checkbox" data-b="c:q8_ns" id="cq8ns">Não sabe / Não lembra</label></div></div>
+  <div class="q"><p class="req">9. Tem ou teve algum sangramento após relações sexuais? <small>(não considerar a primeira relação sexual na vida)</small></p>
+    <div class="opts"><label class="opt"><input type="radio" name="cq9" data-b="c:q9_sim">Sim</label><label class="opt"><input type="radio" name="cq9" data-b="c:q9_nao">Não / Não sabe / Não lembra</label></div></div>
+  <div class="q"><p class="req">10. Tem ou teve algum sangramento após a menopausa? <small>(não considerar sangramento na vigência de reposição hormonal)</small></p>
+    <div class="opts"><label class="opt"><input type="radio" name="cq10" data-b="c:q10_sim">Sim</label><label class="opt"><input type="radio" name="cq10" data-b="c:q10_nao">Não / Não sabe / Não lembra / Não está na menopausa</label></div></div>
+</section>
+<section class="cit" id="secC2">
+  <h2><span>Citopatológico</span>Exame clínico</h2>
+  <div class="q"><p class="req">11. Inspeção do colo</p>
+    <div class="opts"><label class="opt"><input type="radio" name="cq11" data-b="c:q11_normal">Normal</label><label class="opt"><input type="radio" name="cq11" data-b="c:q11_ausente">Ausente (anomalias congênitas ou retirado cirurgicamente)</label><label class="opt"><input type="radio" name="cq11" data-b="c:q11_alterado" id="cq11alt">Alterado</label><label class="opt"><input type="radio" name="cq11" data-b="c:q11_nv">Colo não visualizado</label></div>
+    <div class="warn" data-when="cq11alt">Na presença de colo alterado, com lesão sugestiva de câncer, não aguardar o resultado do citopatológico para encaminhar a mulher para colposcopia.</div></div>
+  <div class="q"><p>12. Sinais sugestivos de doenças sexualmente transmissíveis?</p>
+    <div class="opts"><label class="opt"><input type="radio" name="cq12" data-b="c:q12_sim">Sim</label><label class="opt"><input type="radio" name="cq12" data-b="c:q12_nao">Não</label></div></div>
+  <div class="g" style="margin-top:6px">
+    <label class="f c4"><b>Nº Protocolo</b><input data-f="c_protocolo" placeholder="Gerado pelo SISCAN (opcional)"></label>
+  </div>
+</section>
+
+<section>
+  <h2><span>Assinatura</span>Data e responsável</h2>
+  <div class="g">
+    <label class="f c4"><b class="req">Data</b><input type="date" id="dt"></label>
+    <label class="f c8"><b class="req">Responsável</b><input data-f="resp" placeholder="Nome do profissional"></label>
+  </div>
+  <p class="note" style="margin-top:10px">A data entra como data da solicitação na mamografia e como data da coleta no citopatológico.</p>
+</section>
+</main>
+
+<div id="pending"></div>
+
+<div id="print">
+  <div class="page" id="pm0"><img alt="" src="assets/formularios/mamografia-frente.png"></div>
+  <div class="page" id="pm1"><img alt="" src="assets/formularios/mamografia-verso.png"></div>
+  <div class="page" id="pc0"><img alt="" src="assets/formularios/citopatologico-frente.png"></div>
+  <div class="page" id="pc1"><img alt="" src="assets/formularios/citopatologico-verso.png"></div>
+</div>
+<footer class="mq-foot" data-componente="rodape"></footer>
+</body>
+</html>

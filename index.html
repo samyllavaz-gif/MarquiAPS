@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marqui APS</title>
+<link rel="stylesheet" href="css/base/fontes.css">
+<link rel="stylesheet" href="css/base/marca.css">
+<link rel="stylesheet" href="css/base/estrutura.css">
+<link rel="stylesheet" href="css/paginas/consultas/base.css">
+<link rel="stylesheet" href="css/paginas/consultas/inicio.css">
+<link rel="stylesheet" href="css/paginas/consultas/consulta.css">
+<link rel="stylesheet" href="css/paginas/consultas/hiperdia.css">
+<link rel="stylesheet" href="css/paginas/consultas/queixas.css">
+<link rel="stylesheet" href="css/paginas/consultas/modelos.css">
+<link rel="stylesheet" href="css/paginas/consultas/painel.css">
+<link rel="stylesheet" href="css/paginas/consultas/unica.css">
+<script type="module" src="js/consultas/app.js"></script>
+<link rel="stylesheet" href="css/base/visual.css">
+</head>
+<body>
+<header class="mq-top" data-componente="cabecalho"></header>
+
+<main>
+<!-- INÍCIO -->
+<section id="v-inicio" class="wrap home">
+  <div class="hero-card">
+    <img src="assets/img/logo-marquiaps.png" alt="Marqui APS" class="logo-hero" width="260" height="257">
+    <span class="tag">Tecnologia simples para cuidar melhor</span>
+    <p>Um espaço para reunir ferramentas digitais de apoio à prática clínica, organização do cuidado e tomada de decisão na Atenção Primária à Saúde.</p>
+    <div class="hero-actions"><a href="#consultas" class="hbtn primary">Ver consultas</a><a href="calculadoras.html" class="hbtn">Calculadoras</a><a href="#sobre" class="hbtn">Conhecer o projeto</a></div>
+  </div>
+
+  <div class="section-heading" id="consultas">
+    <h2>Consultas</h2>
+    <p>Uma página só para a consulta: marque o que vai avaliar e preencha os dados comuns uma vez. O texto sai num SOAP único, pronto para colar no PEC.</p>
+  </div>
+  <div class="tool-grid">
+      <div class="tool-card consulta-card">
+        <span class="tool-ico"><img src="assets/img/logo-icone.png" alt=""></span>
+        <h3>Consulta</h3>
+        <p>Motivo, antecedentes, medicamentos, alergias, sinais vitais, avaliação e plano uma vez só. Junte os tipos que precisar no mesmo atendimento.</p>
+        <div class="tipos-atalho" aria-label="Abrir a consulta já com um tipo marcado">
+          <a href="#queixas">Queixas do dia</a><a href="#hiperdia">Hipertensão e diabetes</a><a href="#mulher">Saúde da mulher</a><a href="#prenatal">Pré-natal</a><a href="#puerperal">Puerpério</a><a href="#puericultura">Puericultura</a><a href="#homem">Saúde do homem</a><a href="#mental">Saúde mental</a><a href="#reumato">Reumatologia</a><a href="#ortopedia">Ortopedia</a>
+        </div>
+        <a class="go" href="#consulta">Abrir consulta →</a>
+      </div>
+      <a class="tool-card" href="implante.html">
+        <span class="tool-ico txt">IM</span>
+        <h3>Inserção de implante subdérmico</h3>
+        <p>Roteiro da consulta de inserção: descarte de gravidez, elegibilidade, procedimento, registro do dispositivo e códigos SIGTAP.</p>
+        <div class="pills"><span>Elegibilidade</span><span>SIGTAP · CID · CIAP</span></div>
+        <span class="go">Abrir roteiro →</span>
+      </a>
+      <a class="tool-card" href="contracepcao.html">
+        <span class="tool-ico"><img src="assets/img/icones/contracepcao.png" alt=""></span>
+        <h3>Contracepção</h3>
+        <p>EscolhaSegura APS: triagem de segurança, métodos disponíveis no município e SOAP da consulta de planejamento reprodutivo.</p>
+        <div class="pills"><span>Triagem de segurança</span><span>Métodos do SUS</span></div>
+        <span class="go">Escolher método →</span>
+      </a>
+  </div>
+
+  <div class="section-heading" id="requisicoes">
+    <h2>Requisições e solicitações</h2>
+    <p>Preencha os dados e gere os documentos em PDF para conferir, baixar e imprimir.</p>
+  </div>
+  <div class="tool-grid">
+      <a class="tool-card" href="ses-bauru.html">
+        <span class="tool-ico txt">SES</span>
+        <h3>Solicitação de dieta enteral e medicações — Bauru</h3>
+        <p>Kit de solicitação SES-SP com anexos para medicamento ou dieta enteral, declaração, justificativa, receita e relatório. Importa dados de PDFs do e-SUS PEC.</p>
+        <div class="pills"><span>Bauru · SES-SP</span><span>Dieta enteral</span><span>Medicações</span></div>
+        <span class="go">Preencher solicitação →</span>
+      </a>
+      <a class="tool-card" href="mamografia.html">
+        <span class="tool-ico txt">MC</span>
+        <h3>Mamografia e citopatológico</h3>
+        <p>Requisições do SISCAN de mamografia e de exame citopatológico do colo do útero, com os dados da paciente digitados uma única vez ou importados do e-SUS PEC.</p>
+        <div class="pills"><span>SISCAN</span><span>Importa do PEC</span><span>Frente e verso</span></div>
+        <span class="go">Preencher →</span>
+      </a>
+      <a class="tool-card" href="densitometria.html">
+        <span class="tool-ico txt">DO</span>
+        <h3>Densitometria óssea</h3>
+        <p>Laudo BPA-I e pedido de exame do HC-FMB Botucatu, com fatores de risco, hipótese diagnóstica e CID sugeridos.</p>
+        <div class="pills"><span>BPA-I</span><span>Pedido do HC</span></div>
+        <span class="go">Preencher →</span>
+      </a>
+      <a class="tool-card" href="apac.html">
+        <span class="tool-ico txt">AP</span>
+        <h3>APAC · exames de alto custo</h3>
+        <p>Laudo para solicitação e autorização de procedimento ambulatorial: importa os dados do laudo em PDF do e-SUS PEC e preenche o código SIGTAP de cada exame.</p>
+        <div class="pills"><span>Importa do PEC</span><span>Códigos SIGTAP</span></div>
+        <span class="go">Preencher →</span>
+      </a>
+  </div>
+
+  <div class="section-heading">
+    <h2>Ferramentas</h2>
+  </div>
+  <div class="tool-grid">
+      <a class="tool-card" href="calculadoras.html">
+        <span class="tool-ico"><img src="assets/img/icones/calculadora.png" alt=""></span>
+        <h3>Calculadoras</h3>
+        <p>Escores da APS em 12 áreas: hipertensão, diabetes, risco cardiovascular, rim, idoso, saúde mental, respiratório, pré-natal, anticoagulação, dor, pediatria e dose pediátrica.</p>
+        <div class="pills"><span>PREVENT + SBC 2025</span><span>Curvas da OMS</span><span>Escalas validadas</span></div>
+        <span class="go">Abrir calculadoras →</span>
+      </a>
+      <a class="tool-card" href="calculadoras.html#dose">
+        <span class="tool-ico txt">mg</span>
+        <h3>Dose pediátrica</h3>
+        <p>Dose por peso e idade com os medicamentos da rede municipal: volume em mL, gotas ou fração de comprimido, alertas de idade e linha da receita pronta.</p>
+        <div class="pills"><span>Antitérmicos</span><span>Antibióticos</span><span>Quantidade de frascos</span></div>
+        <span class="go">Calcular dose →</span>
+      </a>
+      <a class="tool-card" href="receita.html">
+        <span class="tool-ico txt">Rx</span>
+        <h3>Receita sem data</h3>
+        <p>Tira a data abaixo da assinatura do Receituário de Controle Especial gerado no e-SUS PEC, nas duas vias, e deixa a linha para preencher à mão.</p>
+        <div class="pills"><span>Controle especial</span><span>Várias de uma vez</span></div>
+        <span class="go">Abrir →</span>
+      </a>
+  </div>
+
+  <div class="section-heading" id="sobre">
+    <h2>Sobre o projeto</h2>
+  </div>
+  <div class="about-card">
+    <p>O <strong>MarquiAPS</strong> foi idealizado pela <strong>Dra. Samylla Vaz de Marqui e Silva</strong> <i>(CRMSP 238632)</i>, médica com atuação na Atenção Primária à Saúde e experiência na construção de ferramentas, fluxos e estratégias de apoio à prática clínica no SUS.</p>
+    <p>A proposta surgiu da observação cotidiana de que a APS exige decisões rápidas, seguras e bem documentadas, muitas vezes diante de cenários complexos, alta demanda assistencial e diferentes necessidades do território.</p>
+    <p>Por isso, o projeto reúne sistemas simples e práticos, criados para apoiar profissionais de saúde na consulta, na organização do cuidado e na padronização de condutas.</p>
+    <p>Mais do que tecnologia, o MarquiAPS busca ser uma ponte entre o conhecimento técnico e a realidade viva da Atenção Primária.</p>
+  </div>
+  <p class="home-note">Nenhum dado sai do seu navegador. A consulta guarda um rascunho neste computador até você clicar em “Nova consulta”.</p>
+</section>
+
+<!-- CONSULTA (padrão e HiperDia) -->
+<section id="v-consulta" class="wrap consult" hidden>
+  <div class="consult-head">
+    <div>
+      <span class="eyebrow">Consulta na atenção primária</span>
+      <h1>Registro SOAP</h1>
+      <p>Marque o que vai avaliar. Os dados comuns são preenchidos uma vez, e o texto para o SOAP junta tudo num só.</p>
+    </div>
+    <div class="head-actions">
+      <button class="btn" id="btn-exemplo" type="button">Ver exemplo preenchido</button>
+      <button class="btn danger" id="btn-limpar" type="button">Nova consulta</button>
+    </div>
+  </div>
+
+  <form class="form" id="form" autocomplete="off">
+    <p class="note" id="aviso-outra-consulta" role="status" hidden>Outra consulta foi iniciada em uma aba deste navegador. Esta aba não atualizará o rascunho nem enviará resultados para o novo atendimento. Volte à aba da consulta atual.</p>
+    <section id="objetivos-consulta" class="objetivos-box" aria-labelledby="objetivo-titulo">
+      <h2 id="objetivo-titulo">Qual é o objetivo de hoje?</h2>
+      <div class="objetivos-opcoes" role="group" aria-label="Objetivo do atendimento">
+        <button type="button" class="btn" data-objetivo="queixa" aria-pressed="false">Queixa nova</button>
+        <button type="button" class="btn" data-objetivo="acompanhamento" aria-pressed="false">Acompanhamento</button>
+        <button type="button" class="btn" data-objetivo="prevencao" aria-pressed="false">Prevenção</button>
+      </div>
+      <p class="note" id="objetivo-ajuda"></p>
+      <div><button type="button" class="btn small" id="comecar-objetivo" hidden>Começar por aqui</button></div>
+    </section>
+    <!-- Tipos de consulta -->
+    <div class="tipos-box">
+      <div class="tipos-h"><b id="tipos-titulo">O que avaliar nesta consulta</b><span class="hint">marque um ou mais</span></div>
+      <div class="tipos" id="tipos" role="group" aria-labelledby="tipos-titulo"></div>
+      <div class="legend" id="legenda-modulos" hidden><span>Listas de sintomas:</span><span><i class="p">+ item</i>presente</span><span><i class="a">− item</i>ausente</span><span><i style="border-style:dashed">? item</i>prefere não responder</span><span><i>item</i>não investigado (não entra no texto)</span></div>
+    </div>
+    <section class="sugestoes-box" id="sugestoes-ferramentas" aria-labelledby="sugestoes-titulo">
+      <div class="sugestoes-cabecalho"><h2 id="sugestoes-titulo">Ferramentas para esta consulta</h2><span id="sugestoes-contagem"></span></div>
+      <p class="note">Atalhos conforme as categorias selecionadas. Escolha conforme o objetivo do atendimento.</p>
+      <div id="sugestoes-principais" class="sugestoes-lista"></div>
+      <details id="sugestoes-mais"><summary id="sugestoes-mais-titulo">Ver mais ferramentas</summary><div id="sugestoes-adicionais" class="sugestoes-lista"></div></details>
+      <p id="sugestoes-vazio" class="note" hidden>Selecione uma categoria acima para ver as ferramentas disponíveis.</p>
+      <p class="note">Em outra aba, confira os dados disponíveis e escolha usá-los. Os resultados voltam para revisão antes de entrar no SOAP.</p>
+    </section>
+    <p class="note" id="aviso-dum" role="status" hidden>Há duas DUM diferentes nos roteiros de saúde da mulher e pré-natal. Os dois registros foram preservados; confira as datas.</p>
+    <nav class="fluxo-nav" aria-label="Etapas da consulta">
+      <button type="button" data-etapa="S" aria-pressed="true">S · História</button>
+      <button type="button" data-etapa="O" aria-pressed="false">O · Exame</button>
+      <button type="button" data-etapa="A" aria-pressed="false">A · Avaliação</button>
+      <button type="button" data-etapa="P" aria-pressed="false">P · Plano</button>
+      <button type="button" id="ver-todas" aria-pressed="false">Ver tudo</button>
+    </nav>
+    <p class="fluxo-ajuda">Uma etapa por vez. Os dados continuam salvos ao navegar.</p>
+    <!-- S -->
+    <section class="sec" id="sec-s">
+      <div class="sec-h"><span class="letter">S</span><div><h2>Subjetivo</h2><p>Anamnese: o que o paciente relata</p></div></div>
+      <div class="sec-b">
+        <div class="field"><div class="lab">Identificação <span class="hint">usada nos cálculos de todos os tipos</span></div>
+          <div class="pt-row">
+            <div class="lbl">Sexo<div class="seg" data-hd="sexo"><button type="button" data-v="F">Feminino</button><button type="button" data-v="M">Masculino</button></div></div>
+            <label class="lbl" style="width:120px">Idade (anos)<input type="text" id="hd-idade" inputmode="numeric" placeholder="58"></label>
+          </div></div>
+        <div class="field"><div class="lab">Motivo da consulta</div>
+          <input type="text" id="f-motivo" placeholder="Ex.: Tosse há 5 dias / Renovação de receita e acompanhamento de HAS"></div>
+        <details class="qpick"><summary>Investigar queixas frequentes <span class="hint">opcional</span></summary><div class="lab">Queixas frequentes <span class="hint">selecione para abrir o roteiro de anamnese dirigida</span></div>
+          <div class="chips"><button type="button" class="chip special" id="dg-toggle" aria-pressed="false">Suspeita de dengue / COVID-19 / influenza</button></div>
+          <div class="qgroups" id="qgroups"></div>
+          <div class="dg" id="dg-block" hidden>
+            <div class="qcard-h"><h3>Síndrome febril aguda: dengue, COVID-19 ou influenza</h3><button type="button" class="btn small x" id="dg-close">Fechar ficha</button></div>
+            <div class="dg-top">
+              <label class="lbl" style="width:170px">Início dos sintomas<input type="text" id="dg-inicio" placeholder="dd/mm/aaaa"></label>
+              <span class="dg-day" id="dg-day"></span>
+            </div>
+            <div class="blk"><div class="blk-h">Sintomas <button type="button" class="lnk" data-dgrest="sint">marcar não assinalados como ausentes</button></div>
+              <div class="legend"><span><i class="p">+ Febre</i>presente</span><span><i class="a">− Febre</i>ausente</span><span><i>Febre</i>não investigado</span></div>
+              <div class="chips" id="dg-sint"></div></div>
+            <div class="blk"><div class="blk-h">Doenças pré-existentes</div><div class="chips" data-dg="prev"></div></div>
+            <div class="blk alarm" id="dg-alarm-blk"><div class="blk-h">Sinais de alarme</div><div class="chips" data-dg="alarme"></div></div>
+            <div class="blk alarm" id="dg-choque-blk"><div class="blk-h">Sinais de choque</div><div class="chips" data-dg="choque"></div></div>
+            <div class="yn">
+              <div class="lbl">Gestante<div class="seg" data-dgseg="gest"><button type="button" data-v="sim">Sim</button><button type="button" data-v="nao">Não</button><button type="button" data-v="na">Não se aplica</button></div></div>
+              <div class="lbl">Contato com caso positivo de COVID-19<div class="seg" data-dgseg="contato"><button type="button" data-v="sim">Sim</button><button type="button" data-v="nao">Não</button></div></div>
+              <div class="lbl">Deixou o município nos últimos 15 dias<div class="seg" data-dgseg="viagem"><button type="button" data-v="sim">Sim</button><button type="button" data-v="nao">Não</button></div></div>
+            </div>
+            <div class="blk"><div class="blk-h">Condições especiais (dengue grupo B)</div><div class="chips" data-dg="esp"></div></div>
+            <div class="grid-in" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr))">
+              <label>Contato COVID: quem/quando<input type="text" id="dg-contato-txt" placeholder="Ex.: esposo, positivo em 08/10"></label>
+              <label>Para onde viajou<input type="text" id="dg-viagem-txt" placeholder="Cidade/estado"></label>
+              <label>Teste COVID<input type="text" id="dg-teste-covid" placeholder="Ex.: TR antígeno não reagente"></label>
+              <label>Teste dengue<input type="text" id="dg-teste-dengue" placeholder="Ex.: NS1 solicitado"></label>
+              <label>COVID prévio<input type="text" id="dg-covid-prev" placeholder="Ex.: 2022"></label>
+              <label>Vacinas<input type="text" id="dg-vacinas" placeholder="COVID, influenza, dengue"></label>
+              <label>Ocupação<input type="text" id="dg-ocup" placeholder="Ex.: professora"></label>
+            </div>
+            <p class="note">Medicamentos de uso contínuo e alergias vêm dos campos abaixo, nesta mesma seção.</p>
+            <div class="result" id="dg-res"></div>
+            <label class="incl"><input type="checkbox" id="inc-dg" checked> Incluir classificação de risco no texto do SOAP</label>
+            <p class="ref">Classificação de risco: Dengue – diagnóstico e manejo clínico, adulto e criança (Ministério da Saúde). Os sinais respiratórios de alarme seguem a síndrome gripal.</p>
+          </div>
+          <div class="qcards" id="qcards"></div>
+        </details>
+        <div class="field"><div class="lab">História clínica / complemento do roteiro <span class="hint">início, duração, características, fatores de melhora/piora, sintomas associados</span></div>
+          <textarea id="f-hda" class="tall" placeholder="Escreva a história ou complemente o roteiro acima. Não precisa repetir as respostas já marcadas."></textarea>
+          <details class="historia-reunida"><summary>Ver a história reunida até aqui</summary><p class="note">As respostas das queixas e o complemento livre aparecem juntos. Informações específicas de cada categoria continuam no SOAP.</p><pre id="historia-previa" class="out"></pre></details></div>
+        <div class="field"><div class="lab">Acompanhamento / evolução desde a última consulta <button type="button" class="na-btn" data-na="cont">Não se aplica</button></div>
+          <textarea id="f-cont" placeholder="Ex.: Em acompanhamento de HAS na unidade. Última consulta em 07/2026: ajustada losartana. Refere adesão, nega efeitos adversos."></textarea></div>
+        <div class="field" id="dados-antecedentes"><div class="lab">Antecedentes compartilhados</div>
+          <div class="chips" data-group="ant"></div>
+          <input type="text" id="f-ant-obs" placeholder="Outros antecedentes, cirurgias, internações, história obstétrica…"></div>
+        <div class="field"><div class="lab">Medicamentos em uso</div>
+          <div class="chips"><button type="button" class="chip neg" id="flag-semmeds" aria-pressed="false">Sem medicamentos de uso contínuo</button></div>
+          <textarea id="f-meds" placeholder="Nome, dose e posologia. Ex.: Losartana 50 mg 1 cp 12/12h; Metformina 850 mg 1 cp após almoço e jantar"></textarea></div>
+        <div class="field"><div class="lab">Alergias</div>
+          <div class="seg" id="seg-alergia"><button type="button" data-v="nega" aria-pressed="false">Nega alergias</button><button type="button" data-v="sim" aria-pressed="false">Refere alergia</button></div>
+          <input type="text" id="f-alergia-txt" placeholder="A quê e qual reação (ex.: dipirona – urticária)" hidden></div>
+        <div class="field" id="dados-habitos"><div class="lab">Fatores de risco e hábitos compartilhados</div>
+          <div class="chips" data-group="risco"></div>
+          <input type="text" id="f-risco-obs" placeholder="Detalhe: carga tabágica (maços-ano), dose de álcool, outros"></div>
+        <div class="modulos" data-modulos="S"></div>
+      </div>
+    </section>
+
+    <!-- O -->
+    <section class="sec" id="sec-o">
+      <div class="sec-h"><span class="letter">O</span><div><h2>Objetivo</h2><p>Sinais vitais, exame físico e exames disponíveis</p></div></div>
+      <div class="sec-b">
+        <div class="field"><div class="lab">Sinais vitais <span class="hint">registre os pertinentes à queixa</span></div>
+          <div class="grid-in">
+            <label>PA (mmHg)<input type="text" id="sv-pa" inputmode="numeric" placeholder="120/80"></label>
+            <label>FC (bpm)<input type="text" id="sv-fc" inputmode="numeric" placeholder="78"></label>
+            <label>FR (irpm)<input type="text" id="sv-fr" inputmode="numeric" placeholder="16"></label>
+            <label>Tax (°C)<input type="text" id="sv-tax" inputmode="decimal" placeholder="36,5"></label>
+            <label>SpO₂ (%)<input type="text" id="sv-spo2" inputmode="numeric" placeholder="98"></label>
+            <label>Glicemia capilar (mg/dL)<input type="text" id="sv-hgt" inputmode="numeric" placeholder="110"></label>
+            <label>Peso (kg)<input type="text" id="sv-peso" inputmode="decimal" placeholder="72,5"></label>
+            <label>Altura (m)<input type="text" id="sv-alt" inputmode="decimal" placeholder="1,65"></label>
+            <label>Circ. abdominal (cm)<input type="text" id="sv-ca" inputmode="decimal" placeholder="92"></label>
+            <div class="lbl">IMC (kg/m²)<output id="sv-imc" class="calc-out">—</output></div>
+          </div></div>
+        <div class="field"><div class="lab">Exame físico direcionado</div>
+          <div class="quick" id="quick-ef"><span>Inserir normal:</span></div>
+          <div class="quick-mod" id="quick-ef-mod"></div>
+          <textarea id="f-exame" class="tall" placeholder="Descreva o que foi examinado. Altere o texto inserido quando houver achado alterado."></textarea>
+          <p class="note">Os atalhos inserem a descrição normal. Use só os sistemas que você examinou e ajuste os achados alterados.</p></div>
+        <div class="field"><div class="lab">Resultados de exames disponíveis <button type="button" class="na-btn" data-na="result">Não se aplica</button></div>
+          <textarea id="f-result" placeholder="Data e valores relevantes, com interpretação. Ex.: 08/2026 – HbA1c 8,2% (acima da meta); creatinina 0,9; LDL 132"></textarea></div>
+        <div class="modulos" data-modulos="O"></div>
+      </div>
+    </section>
+
+    <!-- HiperDia -->
+    <section class="sec hdsec" id="sec-hd" hidden>
+      <div class="sec-h"><span class="letter">HD</span><div><h2>Ferramentas do HiperDia</h2><p>Os resultados entram no texto do SOAP automaticamente</p></div></div>
+      <div class="sec-b">
+        <div class="pt-row">
+          <span class="hint">Sexo e idade vêm da Identificação, no início do Subjetivo.</span>
+          <button type="button" class="btn small" id="hd-puxar">Preencher a partir da consulta</button>
+        </div>
+        <div class="tool-tabs" role="tablist">
+          <button type="button" role="tab" data-tab="rcv" aria-selected="true">Risco cardiovascular<span class="dot" id="dot-rcv"></span></button>
+          <button type="button" role="tab" data-tab="tfg" aria-selected="false">Função renal (TFG)<span class="dot" id="dot-tfg"></span></button>
+          <button type="button" role="tab" data-tab="pe" aria-selected="false">Pé diabético<span class="dot" id="dot-pe"></span></button>
+          <button type="button" role="tab" data-tab="fr" aria-selected="false">FINDRISC<span class="dot" id="dot-fr"></span></button>
+        </div>
+
+        <!-- FINDRISC -->
+        <div class="tool" data-panel="fr" hidden>
+          <div class="yn">
+            <div class="lbl">Atividade física ≥ 30 min por dia (trabalho ou lazer)<div class="seg" data-fr="ativ"><button type="button" data-v="1">Sim</button><button type="button" data-v="0">Não</button></div></div>
+            <div class="lbl">Come frutas, verduras ou legumes todos os dias<div class="seg" data-fr="frutas"><button type="button" data-v="1">Sim</button><button type="button" data-v="0">Não</button></div></div>
+            <div class="lbl">Já usou remédio para pressão regularmente<div class="seg" data-hd="antiht"><button type="button" data-v="1">Sim</button><button type="button" data-v="0">Não</button></div></div>
+            <div class="lbl">Glicose alta alguma vez (exame, doença ou gestação)<div class="seg" data-fr="glic"><button type="button" data-v="1">Sim</button><button type="button" data-v="0">Não</button></div></div>
+          </div>
+          <div class="lbl">Familiar com diabetes<div class="seg" data-fr="fam"><button type="button" data-v="0">Não</button><button type="button" data-v="3">Avós, tios ou primos</button><button type="button" data-v="5">Pais, irmãos ou filhos</button></div></div>
+          <div class="result" id="res-fr"></div>
+          <label class="incl"><input type="checkbox" id="inc-fr" checked> Incluir no texto do SOAP</label>
+          <p class="ref">Finnish Diabetes Risk Score (FINDRISC): risco de desenvolver diabetes tipo 2 em 10 anos, para pessoas sem diagnóstico de diabetes. Idade e sexo vêm do topo deste bloco; IMC e circunferência abdominal, dos sinais vitais.</p>
+        </div>
+
+        <!-- PREVENT -->
+        <div class="tool" data-panel="rcv">
+          <div class="grid-in">
+            <label>Colesterol total (mg/dL)<input type="text" id="hd-ct" inputmode="numeric" placeholder="200"></label>
+            <label>HDL (mg/dL)<input type="text" id="hd-hdl" inputmode="numeric" placeholder="45"></label>
+            <label>PA sistólica (mmHg)<input type="text" id="hd-pas" inputmode="numeric" placeholder="da consulta"></label>
+            <label>IMC (kg/m²)<input type="text" id="hd-imc" inputmode="decimal" placeholder="da consulta"></label>
+            <label>TFG (mL/min/1,73 m²)<input type="text" id="hd-tfg" inputmode="numeric" placeholder="da aba TFG"></label>
+          </div>
+          <div class="yn">
+            <div class="lbl">Diabetes<div class="seg" data-hd="dm"><button type="button" data-v="1">Sim</button><button type="button" data-v="0">Não</button></div></div>
+            <div class="lbl">Tabagismo atual<div class="seg" data-hd="tab"><button type="button" data-v="1">Sim</button><button type="button" data-v="0">Não</button></div></div>
+            <div class="lbl">Usa anti-hipertensivo<div class="seg" data-hd="antiht"><button type="button" data-v="1">Sim</button><button type="button" data-v="0">Não</button></div></div>
+            <div class="lbl">Usa estatina<div class="seg" data-hd="estatina"><button type="button" data-v="1">Sim</button><button type="button" data-v="0">Não</button></div></div>
+            <div class="lbl">Evento CV aterosclerótico prévio (IAM, AVC isquêmico, DAP sintomática)<div class="seg" data-hd="dcv"><button type="button" data-v="0">Não</button><button type="button" data-v="1">1 evento</button><button type="button" data-v="2">2 ou mais</button></div></div>
+          </div>
+          <div class="result" id="res-rcv"></div>
+          <div class="mgrp">
+            <div class="mgrp-h"><h3>Estratificação pela Diretriz SBC 2025</h3><span class="ask">baixo · intermediário · alto · muito alto · extremo</span></div>
+            <div class="grid-in">
+              <label>LDL-c (mg/dL)<input type="text" id="hd-ldl" inputmode="numeric" placeholder="130"></label>
+              <label>Lp(a) (mg/dL)<input type="text" id="hd-lpa" inputmode="decimal" placeholder="opcional"></label>
+              <label>Escore de cálcio – CAC (UA)<input type="text" id="hd-cac" inputmode="numeric" placeholder="opcional"></label>
+            </div>
+            <div class="field"><div class="lab">Doença aterosclerótica e exames de imagem</div><div class="chips" data-hdchips="ath"></div></div>
+            <div class="field" id="fld-cond"><div class="lab">Condições de alto risco <span class="hint">para risco extremo; idade ≥ 65, DM, HAS, DRC e tabagismo entram sozinhos</span></div><div class="chips" data-hdchips="cond"></div></div>
+            <div class="field" id="fld-dmstrat"><div class="lab">Estratificadores no diabetes <span class="hint">HAS, tabagismo, rim, história familiar, síndrome metabólica e imagem entram sozinhos</span></div><div class="chips" data-hdchips="ear"></div><div class="chips" data-hdchips="emar"></div></div>
+            <div class="field"><div class="lab">Fatores agravantes de risco <span class="hint">reclassificam para cima</span></div><div class="chips" data-hdchips="agr"></div><p class="note" id="agr-hint"></p></div>
+            <div class="result" id="res-sbc"></div>
+          </div>
+          <label class="incl"><input type="checkbox" id="inc-rcv" checked> Incluir no texto do SOAP</label>
+          <p class="ref">Equações PREVENT (American Heart Association), modelo base, risco em 10 anos, para 30 a 79 anos sem doença cardiovascular prévia. A Diretriz Brasileira de Dislipidemias e Prevenção da Aterosclerose 2025 (SBC) recomenda o PREVENT de DCV aterosclerótica para a estratificação e a completa com diabetes, aterosclerose subclínica, LDL-c, Lp(a) e fatores agravantes (Figura 4.1 e Tabelas 4.1 a 4.8; metas na Tabela 5.1). Campos vazios de PA, IMC e TFG usam o valor da consulta e da aba TFG.</p>
+        </div>
+
+        <!-- TFG -->
+        <div class="tool" data-panel="tfg" hidden>
+          <div class="grid-in">
+            <label>Creatinina (mg/dL)<input type="text" id="hd-cr" inputmode="decimal" placeholder="1,0"></label>
+            <label>Data do exame<input type="text" id="hd-crdata" placeholder="08/2026"></label>
+            <label>Albuminúria – RAC (mg/g)<input type="text" id="hd-rac" inputmode="decimal" placeholder="opcional"></label>
+          </div>
+          <div class="result" id="res-tfg"></div>
+          <label class="incl"><input type="checkbox" id="inc-tfg" checked> Incluir no texto do SOAP</label>
+          <p class="ref">CKD-EPI 2021, sem coeficiente de raça. Estadiamento KDIGO por TFG (G1–G5) e albuminúria (A1–A3). Usa sexo e idade informados acima.</p>
+        </div>
+
+        <!-- PÉ -->
+        <div class="tool" data-panel="pe" hidden>
+          <div class="feet">
+            <div class="foot" data-foot="d"><h4>Pé direito</h4></div>
+            <div class="foot" data-foot="e"><h4>Pé esquerdo</h4></div>
+          </div>
+          <div class="yn">
+            <div class="lbl">Deformidade (dedos em garra, Charcot, proeminências)<div class="seg" data-hd="deform"><button type="button" data-v="1">Sim</button><button type="button" data-v="0">Não</button></div></div>
+            <div class="lbl">Úlcera prévia<div class="seg" data-hd="ulcprev"><button type="button" data-v="1">Sim</button><button type="button" data-v="0">Não</button></div></div>
+            <div class="lbl">Amputação prévia<div class="seg" data-hd="amput"><button type="button" data-v="1">Sim</button><button type="button" data-v="0">Não</button></div></div>
+            <div class="lbl">Úlcera ativa hoje<div class="seg" data-hd="ulcativa"><button type="button" data-v="1">Sim</button><button type="button" data-v="0">Não</button></div></div>
+          </div>
+          <div class="result" id="res-pe"></div>
+          <label class="incl"><input type="checkbox" id="inc-pe" checked> Incluir no texto do SOAP</label>
+          <p class="ref">Classificação de risco do Manual do Pé Diabético (Ministério da Saúde, 2016). Perda da sensibilidade protetora: monofilamento alterado, ou dois ou mais dos outros testes alterados.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- A -->
+    <section class="sec" id="sec-a">
+      <div class="sec-h"><span class="letter">A</span><div><h2>Avaliação</h2><p>Raciocínio clínico e diagnóstico</p></div></div>
+      <div class="sec-b">
+        <div class="field"><div class="lab">Avaliação clínica <span class="hint">por que você chegou a essa conclusão</span></div>
+          <textarea id="f-aval" placeholder="Ex.: Quadro compatível com IVAS viral, sem sinais de gravidade (SpO₂ normal, sem desconforto respiratório, ausculta limpa)."></textarea></div>
+        <div class="field"><div class="lab">Hipótese diagnóstica / diagnóstico <span class="hint">com CID-10 ou CIAP-2</span></div>
+          <input type="text" id="f-hd" placeholder="Ex.: Hipertensão arterial sem controle adequado (I10 / K86)"></div>
+        <div class="field"><div class="lab">Condições crônicas <span class="hint">vêm dos antecedentes marcados em S</span></div>
+          <div class="cron" id="cron-list"></div>
+          <input type="text" id="f-cron-obs" placeholder="Observações sobre metas e controle (ex.: PA fora da meta < 130/80)"></div>
+        <div class="field"><div class="lab">Condições prioritárias</div>
+          <div class="chips" data-group="prior"></div>
+          <input type="text" id="f-prior-obs" placeholder="Detalhe se necessário (ex.: gestante 24 semanas, risco habitual)"></div>
+        <div class="modulos" data-modulos="A"></div>
+      </div>
+    </section>
+
+    <!-- P -->
+    <section class="sec" id="sec-p">
+      <div class="sec-h"><span class="letter">P</span><div><h2>Plano</h2><p>Exames, conduta, prescrição, orientações e seguimento</p></div></div>
+      <div class="sec-b">
+        <div class="field"><div class="lab">Exames solicitados <button type="button" class="na-btn" data-na="exsol">Sem necessidade</button></div>
+          <textarea id="f-exsol" placeholder="Ex.: Hemograma, glicemia de jejum, HbA1c, perfil lipídico, creatinina, urina tipo 1, ECG"></textarea></div>
+        <div class="field"><div class="lab">Conduta / tratamento</div>
+          <textarea id="f-conduta" placeholder="Ex.: Aumento da losartana para 50 mg 12/12h. Mantidas demais medicações."></textarea></div>
+        <div class="field"><div class="lab">Prescrição <span class="hint">medicamento, dose, via, frequência e duração</span><button type="button" class="na-btn" data-na="presc">Sem prescrição</button></div>
+          <div class="presc-head"><span></span><span>Medicamento e concentração</span><span>Posologia (dose, via, frequência)</span><span>Duração</span><span></span></div>
+          <div class="presc" id="presc"></div>
+          <div><button type="button" class="btn small" id="presc-add">+ Adicionar medicamento</button></div></div>
+        <div class="field"><div class="lab">Orientações fornecidas</div>
+          <div class="chips" data-group="orient"></div>
+          <input type="text" id="f-orient-obs" placeholder="Orientações específicas deste paciente"></div>
+        <div class="field" id="dg-orient-fld" hidden><div class="lab">Orientações da síndrome febril / gripal</div>
+          <div class="quick"><span>Selecionar:</span><button type="button" data-pack="dengue">Pacote dengue</button><button type="button" data-pack="gripe">Pacote síndrome gripal</button><button type="button" data-pack="none">Limpar</button></div>
+          <div class="orient-list" id="dg-orient"></div></div>
+        <div class="field"><div class="lab">Sinais de alarme <button type="button" class="na-btn" data-na="alarme">Não se aplica</button></div>
+          <div class="chips" data-group="alarme"></div>
+          <input type="text" id="f-alarme-obs" placeholder="Outros sinais de alarme orientados"></div>
+        <div class="field"><div class="lab">Encaminhamentos <button type="button" class="na-btn" data-na="enc">Sem necessidade</button></div>
+          <textarea id="f-enc" placeholder="Especialidade/serviço e motivo. Ex.: Cardiologia – HAS resistente em uso de 3 classes; ECG anexado"></textarea></div>
+        <div class="field"><div class="lab">Vacinação e prevenção <button type="button" class="na-btn" data-na="prev">Não se aplica</button></div>
+          <div class="chips" data-group="prev"></div>
+          <input type="text" id="f-prev-obs" placeholder="Ex.: Influenza 2026 aplicada hoje; citopatológico solicitado"></div>
+        <div class="field"><div class="lab">Plano de seguimento</div>
+          <div class="two">
+            <select id="f-retorno" aria-label="Retorno">
+              <option value="">Retorno…</option>
+              <option>Retorno em 7 dias</option>
+              <option>Retorno em 15 dias</option>
+              <option>Retorno em 30 dias</option>
+              <option>Retorno em 60 dias</option>
+              <option>Retorno em 90 dias</option>
+              <option>Retorno em 6 meses</option>
+              <option>Retorno com resultados de exames</option>
+              <option>Retorno conforme necessidade</option>
+            </select>
+            <input type="text" id="f-seg" placeholder="Objetivo do retorno (ex.: reavaliar PA e resultados)">
+          </div></div>
+        <div class="modulos" data-modulos="P"></div>
+      </div>
+    </section>
+  </form>
+
+  <aside class="panel">
+    <div class="box" id="revisao-consulta"><h3>Revisão da consulta</h3><p id="resumo-consulta"></p><ul id="pendencias-consulta"></ul><p class="note">Lembretes de preenchimento, sem inclusão automática de achados.</p></div>
+    <div class="box" id="resultados-pendentes" hidden><h3>Resultados para conferir</h3><p class="note">Recebidos das calculadoras desta consulta.</p><div id="lista-resultados-pendentes"></div></div>
+    <div class="box" id="resultados-incluidos" hidden></div>
+    <div class="box" id="saida">
+      <p class="note" id="estado-revisao" role="status"></p><button type="button" class="btn" data-revisar-soap>Revisar e editar SOAP</button><div class="out-h"><h3>Texto para o SOAP</h3><button class="btn primary small" type="button" data-copy="all">Copiar tudo</button></div>
+      <div class="out-sec"><div class="out-h"><b>S · Subjetivo</b><button class="btn small" type="button" data-copy="S">Copiar</button></div><pre class="out" id="out-S"></pre></div>
+      <div class="out-sec"><div class="out-h"><b>O · Objetivo</b><button class="btn small" type="button" data-copy="O">Copiar</button></div><pre class="out" id="out-O"></pre></div>
+      <div class="out-sec"><div class="out-h"><b>A · Avaliação</b><button class="btn small" type="button" data-copy="A">Copiar</button></div><pre class="out" id="out-A"></pre></div>
+      <div class="out-sec"><div class="out-h"><b>P · Plano</b><button class="btn small" type="button" data-copy="P">Copiar</button></div><pre class="out" id="out-P"></pre></div>
+    </div>
+  </aside>
+</section>
+</main>
+<footer class="mq-foot" data-componente="rodape"></footer>
+
+<div class="mbar" id="mbar" hidden><button class="btn primary" type="button" id="mbar-go">Ver texto SOAP</button></div>
+<dialog id="dialogo-revisao" aria-labelledby="revisao-titulo">
+  <div class="revisao-cabecalho"><h2 id="revisao-titulo">Revisar o texto do SOAP</h2><button type="button" class="btn small" id="fechar-revisao">Fechar sem aplicar</button></div>
+  <p class="note">Ajuste a redação antes de copiar. As alterações valem para o texto final; os campos originais ficam disponíveis para comparação.</p>
+  <section class="revisao-bloco"><label for="revisar-S">S · Subjetivo</label><p id="revisao-divergente-S" class="note" hidden>Os campos deste bloco mudaram desde a revisão anterior. Compare o texto abaixo com o registro atual antes de aplicar.</p><textarea id="revisar-S" rows="6"></textarea><details><summary>Comparar com o texto atual dos campos</summary><pre id="fonte-S" class="out"></pre></details></section><section class="revisao-bloco"><label for="revisar-O">O · Objetivo</label><p id="revisao-divergente-O" class="note" hidden>Os campos deste bloco mudaram desde a revisão anterior. Compare o texto abaixo com o registro atual antes de aplicar.</p><textarea id="revisar-O" rows="6"></textarea><details><summary>Comparar com o texto atual dos campos</summary><pre id="fonte-O" class="out"></pre></details></section><section class="revisao-bloco"><label for="revisar-A">A · Avaliação</label><p id="revisao-divergente-A" class="note" hidden>Os campos deste bloco mudaram desde a revisão anterior. Compare o texto abaixo com o registro atual antes de aplicar.</p><textarea id="revisar-A" rows="6"></textarea><details><summary>Comparar com o texto atual dos campos</summary><pre id="fonte-A" class="out"></pre></details></section><section class="revisao-bloco"><label for="revisar-P">P · Plano</label><p id="revisao-divergente-P" class="note" hidden>Os campos deste bloco mudaram desde a revisão anterior. Compare o texto abaixo com o registro atual antes de aplicar.</p><textarea id="revisar-P" rows="6"></textarea><details><summary>Comparar com o texto atual dos campos</summary><pre id="fonte-P" class="out"></pre></details></section>
+  <div class="revisao-acoes"><button type="button" class="btn" id="descartar-revisao">Restaurar texto dos campos</button><button type="button" class="btn primary" id="aplicar-revisao">Aplicar revisão</button></div>
+</dialog>
+</body>
+</html>

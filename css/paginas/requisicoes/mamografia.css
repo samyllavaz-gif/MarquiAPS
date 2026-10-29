@@ -1,0 +1,63 @@
+/* Layout: barra fixa + dados comuns da paciente (uma vez) + bloco de cada exame com a cor do seu formulário; os formulários oficiais só existem na impressão */
+section{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 18px 20px;--k:var(--accent);--ks:var(--accent-soft)}
+section.mam{--k:var(--mam);--ks:var(--mam-soft);border-top:4px solid var(--mam)}
+section.cit{--k:var(--cit);--ks:var(--cit-soft);border-top:4px solid var(--cit)}
+section>h2 span{font:700 11px var(--ui);letter-spacing:.08em;text-transform:uppercase;color:var(--k)}
+.req::after{content:" *";color:var(--k)}
+input[type=text],input[type=date],input:not([type]){font:inherit;font-size:15px;color:var(--fg);background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:8px 10px;width:100%;min-width:0;font-variant-numeric:tabular-nums}
+input:focus{border-color:var(--focus);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--focus) 25%,transparent)}
+.cnt{font-size:11px;color:var(--muted);align-self:flex-end;font-variant-numeric:tabular-nums}
+.q{display:grid;gap:8px;padding:12px 0;border-top:1px solid var(--line)}
+.q:first-of-type{border-top:0;padding-top:0}
+.q>p{margin:0;font-weight:700}
+.q>p small{font-weight:400;color:var(--muted)}
+.opt input{margin:0;accent-color:var(--k)}
+.opt:has(input:checked){border-color:var(--k);background:var(--ks)}
+.sub{border-left:3px solid var(--ks);padding:4px 0 4px 14px;display:grid;gap:12px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:700px){.two{grid-template-columns:1fr}}
+.side{display:grid;gap:8px;align-content:start;min-width:0}
+.side h4{margin:0;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.mini{font-size:12.5px;color:var(--muted);margin:2px 0 -2px}
+table.cir{width:100%;border-collapse:collapse;font-size:14px}
+table.cir th{text-align:left;font-size:12px;color:var(--muted);font-weight:700;padding:4px 6px;letter-spacing:.04em;text-transform:uppercase}
+table.cir td{padding:4px 6px;border-top:1px solid var(--line)}
+table.cir input{width:90px;padding:5px 8px;text-align:center}
+.tw{overflow-x:auto}
+.inl{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end}
+.inl label.f{width:200px}
+.pick{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:700px){.pick{grid-template-columns:1fr}}
+.card{display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--line);border-radius:10px;padding:14px;cursor:pointer;background:var(--soft)}
+.card input{margin-top:3px;width:18px;height:18px}
+.card b{display:block;font:600 16px var(--display)}
+.card small{color:var(--muted);font-size:13px}
+.card.m input{accent-color:var(--mam)}.card.c input{accent-color:var(--cit)}
+.card.m:has(input:checked){border-color:var(--mam);background:var(--mam-soft)}
+.card.c:has(input:checked){border-color:var(--cit);background:var(--cit-soft)}
+.verso{font-size:13px;color:var(--muted);display:inline-flex;gap:6px;align-items:center;margin-top:6px}
+/* impressão */
+#print{display:none}
+.page{position:relative;width:570pt;height:814pt;margin:0 auto;background:#fff;overflow:hidden}
+.page>img{position:absolute;inset:0;width:100%;height:100%}
+.ch{position:absolute;font:700 9.5pt/1 var(--fill);color:#000;text-align:center;white-space:nowrap}
+.xx{position:absolute;font:700 9pt/1 var(--fill);color:#000;display:flex;align-items:center;justify-content:center}
+@media print{
+  .bar,main,#pending{display:none!important}
+  #print{display:block}
+  .page{margin-top:13.9pt;break-after:page;page-break-after:always}
+  .page.last{break-after:auto;page-break-after:auto}
+}
+/* importação de PDFs do e-SUS PEC */
+.drop{position:relative;display:grid;gap:4px;justify-items:center;text-align:center;border:2px dashed var(--line);border-radius:10px;padding:20px 16px;cursor:pointer;background:var(--soft);color:var(--muted);font-size:14px}
+.drop>b{color:var(--accent);font-size:15px}
+.drop small{font-size:12.5px;max-width:560px}
+.drop small b{color:var(--fg);font-size:inherit}
+.drop.over,.drop:hover{border-color:var(--accent);background:var(--accent-soft)}
+.drop input{position:absolute;width:1px;height:1px;opacity:0}
+.drop:focus-within{outline:2px solid var(--focus);outline-offset:2px}
+#impRes{margin-top:12px;display:grid;gap:8px;font-size:14px}
+.okbox{background:var(--accent-soft);color:var(--fg);border-radius:8px;padding:10px 12px}
+.okbox b{color:var(--accent)}
+.bad{background:var(--bad-soft);color:var(--bad);border-radius:8px;padding:8px 12px;font-size:13.5px}
+.miss{outline:2px solid var(--warn);outline-offset:1px}

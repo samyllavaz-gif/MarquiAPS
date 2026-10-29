@@ -1,0 +1,62 @@
+/* Layout: barra fixa + coluna única na ordem do laudo APAC; o bloco de exames é o centro (código SIGTAP em destaque); o laudo oficial só existe na impressão */
+button.link{border:0;background:none;color:var(--accent);padding:4px 0;font-weight:700}
+button.ghost{border-color:transparent;background:none;color:var(--muted);padding:6px 8px}
+button.ghost:hover{color:var(--bad)}
+section{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 18px 20px}
+section>h2 span{font:700 11px var(--ui);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.req::after{content:" *";color:var(--accent)}
+input[type=text],input[type=date],input[type=number],input:not([type]),textarea,select{font:inherit;font-size:15px;color:var(--fg);background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:8px 10px;width:100%;min-width:0;font-variant-numeric:tabular-nums}
+textarea{resize:vertical;min-height:84px;line-height:1.4}
+input:focus,textarea:focus,select:focus{border-color:var(--focus);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--focus) 25%,transparent)}
+.opt input{margin:0;accent-color:var(--accent)}
+.opt:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.opt.contrast:has(input:checked){border-color:var(--warn);background:var(--warn-soft)}
+.bad{background:var(--bad-soft);color:var(--bad);border-radius:8px;padding:8px 12px;font-size:13.5px}
+/* exames */
+.exams{display:grid;gap:12px}
+.ex{border:1px solid var(--line);border-radius:10px;padding:14px;background:var(--soft);display:grid;gap:10px}
+.ex.main{border-color:var(--accent);border-width:1.5px}
+.ex-h{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.ex-h .tag{font:700 11px var(--ui);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.ex-h .tag.sec{color:var(--muted)}
+.ex-row{display:grid;grid-template-columns:minmax(0,1fr) 190px 80px;gap:10px;align-items:end}
+@media (max-width:700px){.ex-row{grid-template-columns:1fr 1fr}.ex-row>label:first-child{grid-column:span 2}}
+.code{font:500 17px/1 var(--mono);letter-spacing:.04em;color:var(--fg);background:var(--card);border:1px dashed var(--line);border-radius:6px;padding:9px 10px;white-space:nowrap;text-align:center}
+.code.empty{color:var(--muted);font-size:14px}
+.signame{font-size:12.5px;color:var(--muted);margin:0}
+.badge{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px;background:var(--warn-soft);color:var(--warn)}
+.badge.ok{background:var(--accent-soft);color:var(--accent)}
+.manual{display:grid;grid-template-columns:200px minmax(0,1fr);gap:10px}
+@media (max-width:700px){.manual{grid-template-columns:1fr}}
+/* importação */
+.drop{display:grid;gap:4px;justify-items:center;text-align:center;border:2px dashed var(--line);border-radius:10px;padding:20px 16px;cursor:pointer;background:var(--soft);color:var(--muted);font-size:14px}
+.drop b{color:var(--accent);font-size:15px}
+.drop small{font-size:12.5px}
+.drop.over,.drop:hover{border-color:var(--accent);background:var(--accent-soft)}
+.drop input{position:absolute;width:1px;height:1px;opacity:0}
+.drop:focus-within{outline:2px solid var(--focus);outline-offset:2px}
+#impRes{margin-top:12px;display:grid;gap:8px;font-size:14px}
+.okbox{background:var(--accent-soft);color:var(--fg);border-radius:8px;padding:10px 12px}
+.okbox b{color:var(--accent)}
+.miss{outline:2px solid var(--warn);outline-offset:1px}
+/* janela de confirmação */
+.modal{position:fixed;inset:0;z-index:50;background:rgba(10,14,22,.55);display:flex;align-items:center;justify-content:center;padding:16px}
+.dlg{background:var(--card);color:var(--fg);border-radius:12px;max-width:440px;width:100%;padding:22px;box-shadow:0 18px 50px rgba(0,0,0,.35);display:grid;gap:12px}
+.dlg h3{margin:0;font:600 19px/1.25 var(--display);color:var(--warn)}
+.dlg p{margin:0}
+.dlg .acts{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:4px}
+/* impressão */
+#print{position:absolute;left:-20000px;top:0;visibility:hidden}
+.page{position:relative;width:594pt;height:840pt;overflow:hidden;background:#fff}
+.sheet{position:absolute;left:0;top:0;width:595pt;height:842pt;transform-origin:0 0}
+.sheet>img{position:absolute;inset:0;width:100%;height:100%}
+.t{position:absolute;font:700 9pt/1.15 var(--fill);color:#000;white-space:nowrap}
+.tc{text-align:center}
+.mt{position:absolute;font:400 9pt/11pt var(--fill);color:#000;white-space:pre-wrap;overflow-wrap:anywhere}
+.xx{position:absolute;font:700 10pt/1 var(--fill);color:#000;display:flex;align-items:center;justify-content:center}
+.wh{position:absolute;background:#fff}
+@media print{
+  .bar,main,#pending,.modal{display:none!important}
+  #print{position:static;visibility:visible}
+  .page{margin:0 auto}
+}

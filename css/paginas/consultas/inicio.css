@@ -1,0 +1,31 @@
+/* início (Marqui) */
+[hidden]{display:none!important}
+.home{padding-block:32px 24px;display:grid;gap:22px}
+.hero-card{background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:34px;padding:40px 28px;box-shadow:0 10px 25px rgba(122,47,85,.08);max-width:850px;width:100%;margin:8px auto 18px;text-align:center;display:grid;justify-items:center;gap:16px}
+.logo-hero{width:240px;max-width:70%;height:auto}
+.tag{display:inline-block;background:var(--surface-2);color:var(--accent);border:1px solid var(--line);padding:8px 14px;border-radius:999px;font-size:.88rem;font-weight:700}
+.hero-card p{margin:0;font-size:1.08rem;line-height:1.7;max-width:62ch;color:var(--fg)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:6px}
+.hbtn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:999px;font-weight:700;text-decoration:none;color:var(--vinho);background:#fff;border:1px solid var(--line);transition:transform .2s,background .2s}
+.hbtn:hover{background:var(--surface-2)}
+.hbtn.primary{background:var(--brand);border-color:var(--brand);color:#fff;box-shadow:0 8px 18px rgba(216,95,153,.22)}
+.hbtn.primary:hover{background:var(--vinho);border-color:var(--vinho);transform:translateY(-2px)}
+.section-heading{margin-top:22px;scroll-margin-top:110px}
+.section-heading h2{font-size:clamp(2rem,4vw,2.6rem)}
+.section-heading p{margin:6px 0 0;color:var(--muted);line-height:1.6;max-width:70ch}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.tool-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:0 10px 25px rgba(122,47,85,.08);display:grid;gap:10px;align-content:start;text-decoration:none;color:var(--fg);transition:transform .2s,border-color .2s}
+.tool-card:hover{transform:translateY(-4px);border-color:var(--brand)}
+.tool-ico{width:60px;height:60px;border-radius:18px;background:var(--surface-2);border:1px solid var(--line);display:grid;place-items:center;overflow:hidden}
+.tool-ico img{width:40px;height:40px;object-fit:contain}
+.tool-ico.txt{font:400 1.55rem/1 var(--f-display);color:var(--accent)}
+.tool-card h3{font:400 1.5rem/1.1 var(--f-display);color:var(--vinho)}
+.tool-card p{margin:0;color:var(--muted);font-size:.95rem;line-height:1.55}
+.tool-card .go{font-weight:800;color:var(--accent);font-size:.95rem}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pills span{font-size:12.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--surface-2);color:var(--hd);border:1px solid var(--line)}
+.about-card{background:#fff;border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:0 10px 25px rgba(122,47,85,.08);line-height:1.7;display:grid;gap:12px}
+.about-card p{margin:0}
+.about-card strong{color:var(--vinho)}
+.home-note{color:var(--muted);font-size:14.5px;max-width:70ch;margin:0}
+.eyebrow{font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:700}

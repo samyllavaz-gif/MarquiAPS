@@ -1,0 +1,25 @@
+/* Integração visual do kit, preservando a geometria dos PDFs incorporados. */
+:root[data-theme="light"]{
+  --paper:var(--mq-rosa-fundo);--sheet:#fff;--ink:var(--mq-tinta);--muted:var(--mq-muted);
+  --line:var(--mq-borda);--line-2:#ccd0d9;--accent:var(--mq-acento);--accent-ink:#fff;--accent-soft:var(--mq-rosa-claro);
+  --font:var(--mq-body);--mono:var(--mq-mono);color-scheme:light;
+}
+.ses-bauru .wrap{padding-top:24px;gap:24px}
+.ses-bauru header.top{top:var(--mq-header-offset,76px);z-index:25;background:var(--paper);border-bottom:0}
+.ses-bauru .top-in{padding-top:20px;padding-bottom:16px}
+.ses-bauru .brand b{font:650 23px/1.3 var(--font);color:var(--mq-vinho);max-width:42ch}
+.ses-bauru .brand span{font:12px/1.5 var(--font);margin-top:6px}
+.ses-bauru .seg{border-radius:8px;background:white;padding:3px}
+.ses-bauru .seg button{border-radius:5px;font:550 13px var(--font)}
+.ses-bauru section.card{padding:0;margin:0;box-shadow:none;border-radius:12px;scroll-margin-top:190px}
+.ses-bauru section.card>h2{font:650 14px/1.4 var(--font);letter-spacing:0;text-transform:none;padding:16px 18px}
+.ses-bauru .body{padding:18px}
+.ses-bauru input,.ses-bauru select,.ses-bauru textarea{background:#fff}
+.ses-bauru .drop{background:#faf8f9;border-radius:10px;font-family:var(--font)}
+.ses-bauru .side{top:190px}
+.ses-bauru .panel{box-shadow:none;border-radius:12px}
+.ses-bauru .panel h3{font:650 15px/1.4 var(--font)}
+.ses-bauru .btn{border-radius:7px;font-family:var(--font)}
+.ses-bauru .preview{scroll-margin-top:190px}
+@media(max-width:980px){.ses-bauru header.top{position:static}.ses-bauru .brand b{font-size:21px}.ses-bauru .side{position:static}.ses-bauru section.card{scroll-margin-top:120px}}
+@media(max-width:600px){.ses-bauru .wrap{padding-inline:16px}.ses-bauru .brand b{font-size:20px}.ses-bauru .top-in{gap:14px}.ses-bauru section.card>h2{flex-wrap:wrap}.ses-bauru section.card>h2 em{margin-left:0}}

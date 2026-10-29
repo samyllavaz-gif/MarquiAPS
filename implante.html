@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Implante subdérmico | MarquiAPS</title>
+<link rel="stylesheet" href="css/base/fontes.css">
+<link rel="stylesheet" href="css/base/marca.css">
+<link rel="stylesheet" href="css/base/estrutura.css">
+<link rel="stylesheet" href="css/paginas/implante.css">
+<script type="module" src="js/implante/app.js"></script>
+<link rel="stylesheet" href="css/base/visual.css">
+</head>
+<body>
+<header class="mq-top" data-componente="cabecalho"></header>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="eyebrow">Planejamento reprodutivo · APS</div>
+      <h1>Roteiro de Consulta — Implante Subdérmico</h1>
+      <p>Estruture o atendimento de inserção do implante de etonogestrel e gere a anamnese em SOAP pronta para colar no prontuário (PEC/e-SUS).</p>
+    </div>
+  </header>
+
+  <div class="progress-shell">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-label"><span id="progressText">0% preenchido</span><span>13 seções</span></div>
+  </div>
+
+  <nav class="jump" id="jumpNav">
+    <a href="#s1">1 · Identificação</a>
+    <a href="#s2">2 · Ginecológica</a>
+    <a href="#s3">3 · Contraceptiva</a>
+    <a href="#s4">4 · Gravidez</a>
+    <a href="#s5">5 · Elegibilidade</a>
+    <a href="#s6">6 · Medicamentos</a>
+    <a href="#s7">7 · Exame físico</a>
+    <a href="#s8">8 · Orientações</a>
+    <a href="#s9">9 · Consentimento</a>
+    <a href="#s10">10 · Procedimento</a>
+    <a href="#s11">11 · Pós-procedimento</a>
+    <a href="#s12">12 · Registro</a>
+    <a href="#s13">13 · Codificação</a>
+  </nav>
+
+  <div class="banner">
+    <div class="ic">🧾</div>
+    <div>
+      <b>Não esqueça do SIGTAP.</b>
+      <p>A inserção (e a retirada) do implante só gera produção e repasse financeiro para a unidade se o procedimento for lançado com o código SIGTAP correto, junto ao CIAP2/CID. Isso está reforçado na seção 13, ao final — confira antes de finalizar o atendimento no PEC.</p>
+    </div>
+  </div>
+
+  <!-- 1 Identificação -->
+  <section class="card" id="s1">
+    <div class="head"><div class="num">1</div><h2>Identificação</h2></div>
+    <div class="grid g2">
+      <div class="field"><label for="f_nome">Nome</label><input type="text" id="f_nome" data-track></div>
+      <div class="field"><label for="f_nasc">Data de nascimento</label><input type="date" id="f_nasc" data-track></div>
+      <div class="field"><label for="f_idade">Idade</label><input type="text" id="f_idade" placeholder="calculada automaticamente" readonly></div>
+      <div class="field"><label for="f_sus">Cartão SUS</label><input type="text" id="f_sus" data-track></div>
+      <div class="field"><label for="f_dataconsulta">Data da consulta</label><input type="date" id="f_dataconsulta" data-track></div>
+      <div class="field"><label for="f_profissional">Profissional responsável</label><input type="text" id="f_profissional" data-track></div>
+      <div class="field"><label for="f_unidade">Unidade / equipe</label><input type="text" id="f_unidade" data-track></div>
+    </div>
+    <div class="field" style="margin-top:12px;">
+      <label for="f_motivo">Motivo da consulta / queixa referida</label>
+      <textarea id="f_motivo" data-track placeholder="Ex.: Usuária busca planejamento reprodutivo de longa duração, solicita inserção do implante subdérmico."></textarea>
+    </div>
+  </section>
+
+  <!-- 2 Historia ginecologica -->
+  <section class="card" id="s2">
+    <div class="head"><div class="num">2</div><h2>História ginecológica e obstétrica</h2></div>
+    <div class="grid g2">
+      <div class="field"><label for="f_menarca">Menarca (idade)</label><input type="text" id="f_menarca" data-track></div>
+      <div class="field"><label for="f_dum">DUM</label><input type="date" id="f_dum" data-track></div>
+      <div class="field"><label>Ciclos menstruais</label>
+        <div class="radiorow">
+          <label><input type="radio" name="ciclo" value="regulares" data-track> Regulares</label>
+          <label><input type="radio" name="ciclo" value="irregulares" data-track> Irregulares</label>
+        </div>
+      </div>
+      <div class="field"><label for="f_gesta">Gestações</label><input type="number" min="0" id="f_gesta" data-track></div>
+      <div class="field"><label for="f_partos">Partos normais</label><input type="number" min="0" id="f_partos" data-track></div>
+      <div class="field"><label for="f_cesareas">Cesáreas</label><input type="number" min="0" id="f_cesareas" data-track></div>
+      <div class="field"><label for="f_abortos">Abortamentos</label><input type="number" min="0" id="f_abortos" data-track></div>
+      <div class="field"><label>Amamentando</label>
+        <div class="radiorow">
+          <label><input type="radio" name="amament" value="sim" data-track> Sim</label>
+          <label><input type="radio" name="amament" value="nao" data-track> Não</label>
+        </div>
+      </div>
+      <div class="field"><label>História de IST</label>
+        <div class="radiorow">
+          <label><input type="radio" name="ist" value="sim" data-track> Sim</label>
+          <label><input type="radio" name="ist" value="nao" data-track> Não</label>
+        </div>
+      </div>
+      <div class="field"><label for="f_ist_qual">Qual IST <span class="hint">(se sim)</span></label><input type="text" id="f_ist_qual"></div>
+      <div class="field"><label for="f_citopat_data">Último citopatológico — data <span class="hint">(opcional)</span></label><input type="date" id="f_citopat_data"></div>
+      <div class="field"><label for="f_citopat_res">Último citopatológico — resultado <span class="hint">(opcional)</span></label><input type="text" id="f_citopat_res"></div>
+    </div>
+  </section>
+
+  <!-- 3 Historia contraceptiva -->
+  <section class="card" id="s3">
+    <div class="head"><div class="num">3</div><h2>História contraceptiva</h2></div>
+    <div class="grid g2">
+      <div class="field"><label for="f_metodoatual">Método atual</label><input type="text" id="f_metodoatual" data-track></div>
+      <div class="field"><label for="f_tempouso">Tempo de uso</label><input type="text" id="f_tempouso" data-track></div>
+      <div class="field"><label for="f_motivotroca">Motivo da troca</label><input type="text" id="f_motivotroca" data-track></div>
+    </div>
+    <div class="field" style="margin-top:12px;">
+      <label>Já utilizou (métodos prévios)</label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox"> <span>Pílula</span></label>
+        <label class="chk"><input type="checkbox"> <span>Injetável</span></label>
+        <label class="chk"><input type="checkbox"> <span>DIU</span></label>
+        <label class="chk"><input type="checkbox"> <span>Preservativo</span></label>
+        <label class="chk"><input type="checkbox"> <span>Implante</span></label>
+      </div>
+      <span class="hint">Opcional — seleção livre.</span>
+    </div>
+    <div class="field" style="margin-top:12px;"><label for="f_metodo_outro">Outro método prévio <span class="hint">(opcional)</span></label><input type="text" id="f_metodo_outro"></div>
+  </section>
+
+  <!-- 4 Descarte de gravidez -->
+  <section class="card" id="s4">
+    <div class="head"><div class="num">4</div><h2>Descarte de gravidez</h2><span class="sub">Critérios de razoável certeza</span></div>
+    <div class="checks">
+      <label class="chk"><input type="checkbox" id="c_menstruada"> <span>Está menstruada atualmente</span></label>
+      <label class="chk"><input type="checkbox" id="c_menstruou7"> <span>Menstruação ocorreu nos últimos 7 dias</span></label>
+      <label class="chk"><input type="checkbox" id="c_usoucorreto"> <span>Está usando método atual corretamente</span></label>
+      <label class="chk"><input type="checkbox" id="c_relacaodesp"> <span>Relação sexual desprotegida recente</span></label>
+      <label class="chk"><input type="checkbox" id="c_posparto"> <span>Está no pós-parto</span></label>
+      <label class="chk"><input type="checkbox" id="c_amenorreia"> <span>Amenorreia por amamentação exclusiva</span></label>
+    </div>
+    <span class="hint">Assinale os critérios aplicáveis — usados para estimar a chance de gravidez abaixo.</span>
+    <div class="grid" style="margin-top:14px;">
+      <div class="field"><label>Teste rápido de gravidez realizado</label>
+        <div class="radiorow">
+          <label><input type="radio" name="testerapido" value="sim" data-track> Sim</label>
+          <label><input type="radio" name="testerapido" value="nao" data-track> Não</label>
+        </div>
+      </div>
+      <div class="field" id="resultadoField"><label>Resultado</label>
+        <div class="radiorow">
+          <label><input type="radio" name="testeresultado" value="negativo" data-track> Negativo</label>
+          <label><input type="radio" name="testeresultado" value="positivo" data-track> Positivo</label>
+        </div>
+      </div>
+    </div>
+    <div class="alert danger" id="alertGravidez"><span>⚠</span><span><b>Teste positivo:</b> não prosseguir com a inserção. Investigar gestação antes de qualquer conduta contraceptiva.</span></div>
+
+    <div class="riskbox" id="riskBox">
+      <div class="riskbox-top">
+        <span class="riskbox-label">Chance estimada de gravidez</span>
+        <span class="riskbox-pct" id="riskPct">indeterminado</span>
+      </div>
+      <p class="riskbox-desc" id="riskDesc">Assinale os critérios acima (ou registre o teste rápido) para estimar.</p>
+      <p class="riskbox-note">Estimativa baseada nos critérios de razoável certeza referidos — não substitui o teste rápido de gravidez nem o julgamento clínico.</p>
+    </div>
+  </section>
+
+  <!-- 5 Elegibilidade -->
+  <section class="card" id="s5">
+    <div class="head"><div class="num">5</div><h2>Avaliação de elegibilidade</h2><span class="sub">OMS — critérios médicos de elegibilidade</span></div>
+    <div class="grid g2">
+      <div class="field"><label>Apresenta contraindicação absoluta (categoria 4)?</label>
+        <div class="radiorow">
+          <label><input type="radio" name="temabsoluta" value="sim" data-track> Sim</label>
+          <label><input type="radio" name="temabsoluta" value="nao" data-track> Não</label>
+        </div>
+      </div>
+      <div class="field"><label>Apresenta contraindicação relativa (categoria 3)?</label>
+        <div class="radiorow">
+          <label><input type="radio" name="temrelativa" value="sim" data-track> Sim</label>
+          <label><input type="radio" name="temrelativa" value="nao" data-track> Não</label>
+        </div>
+      </div>
+    </div>
+    <div class="field" style="margin-top:14px;"><label style="color:var(--danger); font-weight:600;">Contraindicações absolutas (categoria 4 — NÃO inserir)</label>
+      <div class="checks">
+        <label class="chk danger-item"><input type="checkbox" class="ci-absoluta"> <span>Gravidez</span></label>
+        <label class="chk danger-item"><input type="checkbox" class="ci-absoluta"> <span>Câncer de mama atual</span></label>
+      </div>
+      <span class="hint">Marque qual(is), se houver.</span>
+    </div>
+    <div class="field" style="margin-top:14px;"><label style="color:var(--warn); font-weight:600;">Contraindicações relativas (categoria 3 — avaliar com cautela)</label>
+      <div class="checks">
+        <label class="chk warn-item"><input type="checkbox" class="ci-relativa"> <span>Sangramento vaginal sem investigação</span></label>
+        <label class="chk warn-item"><input type="checkbox" class="ci-relativa"> <span>Tromboembolismo venoso agudo</span></label>
+        <label class="chk warn-item"><input type="checkbox" class="ci-relativa"> <span>AVC (em vigência de uso)</span></label>
+        <label class="chk warn-item"><input type="checkbox" class="ci-relativa"> <span>Infarto agudo do miocárdio (em vigência de uso)</span></label>
+        <label class="chk warn-item"><input type="checkbox" class="ci-relativa"> <span>Enxaqueca com aura (durante uso do método)</span></label>
+        <label class="chk warn-item"><input type="checkbox" class="ci-relativa"> <span>Doença hepática grave / cirrose / adenoma hepatocelular</span></label>
+        <label class="chk warn-item"><input type="checkbox" class="ci-relativa"> <span>Lúpus com anticorpos antifosfolípides</span></label>
+        <label class="chk warn-item"><input type="checkbox" class="ci-relativa"> <span>Alergia ao medicamento / componentes</span></label>
+      </div>
+      <span class="hint">Marque qual(is), se houver.</span>
+    </div>
+    <div class="alert danger" id="alertAbsoluta"><span>⛔</span><span><b>Não inserir.</b> Contraindicação absoluta (categoria 4) marcada — oriente método contraceptivo alternativo.</span></div>
+    <div class="alert warn" id="alertRelativa"><span>⚠</span><span><b>Avaliar com cautela.</b> Há contraindicação relativa (categoria 3) — só usar como última escolha, com acompanhamento rigoroso.</span></div>
+    <div class="alert ok" id="alertElegivel"><span>✓</span><span><b>Sem contraindicações marcadas</b> — usuária elegível para o método, a critério clínico.</span></div>
+  </section>
+
+  <!-- 6 Medicamentos -->
+  <section class="card" id="s6">
+    <div class="head"><div class="num">6</div><h2>Medicamentos em uso</h2><span class="sub">Indutores enzimáticos reduzem a eficácia</span></div>
+    <div class="field">
+      <label>Uso de medicamento indutor enzimático?</label>
+      <div class="radiorow">
+        <label><input type="radio" name="usaindutor" value="sim" data-track> Sim</label>
+        <label><input type="radio" name="usaindutor" value="nao" data-track> Não</label>
+      </div>
+    </div>
+    <div class="checks" style="margin-top:12px;">
+      <label class="chk"><input type="checkbox" class="med-indutor"> <span>Carbamazepina</span></label>
+      <label class="chk"><input type="checkbox" class="med-indutor"> <span>Fenitoína</span></label>
+      <label class="chk"><input type="checkbox" class="med-indutor"> <span>Fenobarbital</span></label>
+      <label class="chk"><input type="checkbox" class="med-indutor"> <span>Oxcarbazepina</span></label>
+      <label class="chk"><input type="checkbox" class="med-indutor"> <span>Rifampicina</span></label>
+      <label class="chk"><input type="checkbox" class="med-indutor"> <span>Rifabutina</span></label>
+      <label class="chk"><input type="checkbox" class="med-indutor"> <span>Antirretrovirais</span></label>
+      <label class="chk"><input type="checkbox" class="med-indutor"> <span>Erva-de-São-João</span></label>
+    </div>
+    <span class="hint">Marque qual(is), se houver.</span>
+    <div class="field" style="margin-top:12px;"><label for="f_medoutros">Outros medicamentos em uso <span class="hint">(opcional)</span></label><input type="text" id="f_medoutros"></div>
+    <div class="alert warn" id="alertIndutor"><span>⚠</span><span>Uso de medicamento indutor enzimático — pode reduzir a eficácia do implante. Investigue e oriente a usuária.</span></div>
+  </section>
+
+  <!-- 7 Exame fisico -->
+  <section class="card" id="s7">
+    <div class="head"><div class="num">7</div><h2>Exame físico</h2></div>
+    <div class="grid">
+      <div class="field"><label for="f_pa">PA (mmHg)</label><input type="text" id="f_pa" data-track placeholder="120x80"></div>
+      <div class="field"><label for="f_fc">FC (bpm)</label><input type="text" id="f_fc" data-track></div>
+      <div class="field"><label for="f_peso">Peso (kg)</label><input type="number" step="0.1" id="f_peso" data-track></div>
+      <div class="field"><label for="f_altura">Altura (m)</label><input type="number" step="0.01" id="f_altura" data-track></div>
+    </div>
+    <div class="imc-out">
+      <div>IMC: <b id="imcOut">—</b></div>
+      <div>Classificação: <b id="imcClass">—</b></div>
+    </div>
+    <div class="field" style="margin-top:14px;"><label>Avaliação do braço não dominante</label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox"> <span>Sem alterações</span></label>
+        <label class="chk"><input type="checkbox"> <span>Lesões cutâneas</span></label>
+        <label class="chk"><input type="checkbox"> <span>Processo infeccioso</span></label>
+        <label class="chk"><input type="checkbox"> <span>Cicatrizes</span></label>
+      </div>
+      <input type="text" style="margin-top:8px;" placeholder="Outra alteração (descrever, opcional)" id="f_bracoalt">
+    </div>
+  </section>
+
+  <!-- 8 Orientacoes obrigatorias -->
+  <section class="card" id="s8">
+    <div class="head"><div class="num">8</div><h2>Orientações obrigatórias</h2></div>
+    <div class="checks">
+      <label class="chk"><input type="checkbox" class="orient" data-track> <span>Duração de 3 anos</span></label>
+      <label class="chk"><input type="checkbox" class="orient" data-track> <span>Alta eficácia</span></label>
+      <label class="chk"><input type="checkbox" class="orient" data-track> <span>Pode ser retirado a qualquer momento</span></label>
+      <label class="chk"><input type="checkbox" class="orient" data-track> <span>Retorno rápido da fertilidade</span></label>
+      <label class="chk"><input type="checkbox" class="orient" data-track> <span>Não protege contra IST</span></label>
+      <label class="chk"><input type="checkbox" class="orient" data-track> <span>Uso de preservativo</span></label>
+      <label class="chk"><input type="checkbox" class="orient" data-track> <span>Possíveis alterações menstruais</span></label>
+      <label class="chk"><input type="checkbox" class="orient" data-track> <span>Pode ocorrer hematoma local</span></label>
+      <label class="chk"><input type="checkbox" class="orient" data-track> <span>Necessidade de retorno em caso de intercorrências</span></label>
+    </div>
+    <div class="field" style="margin-top:12px;"><label>Dúvidas esclarecidas</label>
+      <div class="radiorow">
+        <label><input type="radio" name="duvidas" value="sim" data-track> Sim</label>
+        <label><input type="radio" name="duvidas" value="nao" data-track> Não</label>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 Consentimento -->
+  <section class="card" id="s9">
+    <div class="head"><div class="num">9</div><h2>Consentimento</h2></div>
+    <div class="grid g2">
+      <div class="field"><label>TCLE lido e explicado</label>
+        <div class="radiorow">
+          <label><input type="radio" name="tclelido" value="sim" data-track> Sim</label>
+          <label><input type="radio" name="tclelido" value="nao" data-track> Não</label>
+        </div>
+      </div>
+      <div class="field"><label>TCLE assinado</label>
+        <div class="radiorow">
+          <label><input type="radio" name="tcleassinado" value="sim" data-track> Sim</label>
+          <label><input type="radio" name="tcleassinado" value="nao" data-track> Não</label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 Procedimento -->
+  <section class="card" id="s10">
+    <div class="head"><div class="num">10</div><h2>Procedimento</h2></div>
+    <div class="grid g2">
+      <div class="field"><label>Braço escolhido</label>
+        <div class="radiorow">
+          <label><input type="radio" name="braco" value="direito" data-track> Direito</label>
+          <label><input type="radio" name="braco" value="esquerdo" data-track> Esquerdo</label>
+        </div>
+      </div>
+      <div class="field"><label>Dominância</label>
+        <div class="radiorow">
+          <label><input type="radio" name="dominancia" value="destro" data-track> Destro</label>
+          <label><input type="radio" name="dominancia" value="canhoto" data-track> Canhoto</label>
+        </div>
+      </div>
+      <div class="field"><label>Local identificado e marcado (8–10 cm do epicôndilo medial, 3–5 cm do sulco)</label>
+        <div class="radiorow">
+          <label><input type="radio" name="localmarcado" value="sim" data-track> Sim</label>
+          <label><input type="radio" name="localmarcado" value="nao" data-track> Não</label>
+        </div>
+      </div>
+      <div class="field"><label>Anestesia local realizada</label>
+        <div class="radiorow">
+          <label><input type="radio" name="anestesia" value="sim" data-track> Sim</label>
+          <label><input type="radio" name="anestesia" value="nao" data-track> Não</label>
+        </div>
+      </div>
+      <div class="field"><label for="f_anestesico">Anestésico e dose</label><input type="text" id="f_anestesico" data-track placeholder="Lidocaína 2% s/ vasoconstritor, 2ml"></div>
+      <div class="field"><label>Implante inserido com sucesso</label>
+        <div class="radiorow">
+          <label><input type="radio" name="inseridosucesso" value="sim" data-track> Sim</label>
+          <label><input type="radio" name="inseridosucesso" value="nao" data-track> Não</label>
+        </div>
+      </div>
+      <div class="field"><label>Implante palpável ao final</label>
+        <div class="radiorow">
+          <label><input type="radio" name="palpavel" value="sim" data-track> Sim</label>
+          <label><input type="radio" name="palpavel" value="nao" data-track> Não</label>
+        </div>
+      </div>
+      <div class="field"><label>Usuária confirmou palpação</label>
+        <div class="radiorow">
+          <label><input type="radio" name="usuariapalpou" value="sim" data-track> Sim</label>
+          <label><input type="radio" name="usuariapalpou" value="nao" data-track> Não</label>
+        </div>
+      </div>
+      <div class="field"><label>Curativo compressivo realizado</label>
+        <div class="radiorow">
+          <label><input type="radio" name="curativo" value="sim" data-track> Sim</label>
+          <label><input type="radio" name="curativo" value="nao" data-track> Não</label>
+        </div>
+      </div>
+    </div>
+    <div class="alert danger" id="alertNaoInserido"><span>⛔</span><span><b>Implante não confirmado por palpação.</b> Não empurrar/forçar — reavaliar posicionamento; se houver dúvida quanto à inserção correta, seguir conduta do manual antes de liberar a usuária.</span></div>
+  </section>
+
+  <!-- 11 Pos-procedimento -->
+  <section class="card" id="s11">
+    <div class="head"><div class="num">11</div><h2>Orientações pós-procedimento</h2></div>
+    <div class="checks">
+      <label class="chk"><input type="checkbox" class="pos" data-track> <span>Manter curativo seco por 24h; banho, proteger local com filme</span></label>
+      <label class="chk"><input type="checkbox" class="pos" data-track> <span>Evitar peso/esforço no braço por 24–48h</span></label>
+      <label class="chk"><input type="checkbox" class="pos" data-track> <span>Pode ocorrer hematoma local (resolução espontânea em 7–14 dias)</span></label>
+      <label class="chk"><input type="checkbox" class="pos" data-track> <span>Procurar a unidade em caso de dor intensa, secreção, vermelhidão ou impossibilidade de palpar o implante</span></label>
+      <label class="chk"><input type="checkbox" class="pos" data-track> <span>Usar método complementar por 7 dias, quando indicado</span></label>
+      <label class="chk"><input type="checkbox" class="pos" data-track> <span>Implante não protege contra IST — reforçar uso de preservativo</span></label>
+    </div>
+  </section>
+
+  <!-- 12 Registro dispositivo -->
+  <section class="card" id="s12">
+    <div class="head"><div class="num">12</div><h2>Registro do dispositivo</h2></div>
+    <div class="grid g2">
+      <div class="field"><label for="f_lote">Lote</label><input type="text" id="f_lote" data-track></div>
+      <div class="field"><label for="f_validade">Validade</label><input type="date" id="f_validade" data-track></div>
+      <div class="field"><label for="f_datainsercao">Data da inserção</label><input type="date" id="f_datainsercao" data-track></div>
+      <div class="field"><label for="f_dataretirada">Data prevista para retirada</label><input type="date" id="f_dataretirada">
+        <span class="hint">Sugerida automaticamente: inserção + 3 anos.</span>
+      </div>
+      <div class="field"><label>Cartão da usuária entregue</label>
+        <div class="radiorow">
+          <label><input type="radio" name="cartaoentregue" value="sim" data-track> Sim</label>
+          <label><input type="radio" name="cartaoentregue" value="nao" data-track> Não</label>
+        </div>
+      </div>
+    </div>
+    <p class="hint" style="margin-top:10px;">A etiqueta do dispositivo (com o lote) deve ser colada no termo assinado pela usuária e arquivada na unidade.</p>
+  </section>
+
+  <!-- 13 Codificacao -->
+  <section class="card" id="s13">
+    <div class="head"><div class="num">13</div><h2>Codificação para lançamento no PEC</h2><span class="sub">obrigatório para produção</span></div>
+    <div class="codes">
+      <div class="head2"><span class="ic">🧾</span><b>SIGTAP — sempre lance o procedimento</b></div>
+      <div class="codetable">
+        <div class="coderow"><span class="code">03.01.04.017-6</span><span class="desc">Inserção do implante subdérmico contraceptivo liberador de etonogestrel</span></div>
+        <div class="coderow"><span class="code">03.01.04.018-4</span><span class="desc">Retirada do implante subdérmico liberador de etonogestrel</span></div>
+      </div>
+      <div class="head2" style="margin-top:14px;"><span class="ic">🏷️</span><b>CIAP2</b></div>
+      <div class="codetable">
+        <div class="coderow"><span class="code">W14</span><span class="desc">Contracepção/outros</span></div>
+      </div>
+      <div class="head2" style="margin-top:14px;"><span class="ic">🏷️</span><b>CID-10</b></div>
+      <div class="codetable">
+        <div class="coderow"><span class="code">Z30.0</span><span class="desc">Aconselhamento geral sobre contracepção</span></div>
+        <div class="coderow"><span class="code">Z30.8</span><span class="desc">Outro procedimento anticoncepcional</span></div>
+        <div class="coderow"><span class="code">Z30.9</span><span class="desc">Procedimento anticoncepcional não especificado</span></div>
+      </div>
+      <p class="note">Sem o código SIGTAP lançado no procedimento, a inserção não conta como produção da unidade nem gera o devido repasse. Confira este lançamento antes de finalizar o atendimento no e-SUS PEC — ele não substitui o registro em "Intervenções e/ou procedimentos clínicos realizados".</p>
+    </div>
+  </section>
+
+  <div id="resultado" hidden>
+    <h2>Anamnese gerada — SOAP</h2>
+    <p class="lead">Revise o texto (os campos são editáveis) e copie para o prontuário. Os códigos de faturamento já estão incluídos no Plano.</p>
+
+    <div class="soap-block s">
+      <div class="stitle"><span>S · Subjetivo</span><button class="copybtn" data-copy="ta_s">copiar</button></div>
+      <textarea id="ta_s"></textarea>
+    </div>
+    <div class="soap-block o">
+      <div class="stitle"><span>O · Objetivo</span><button class="copybtn" data-copy="ta_o">copiar</button></div>
+      <textarea id="ta_o"></textarea>
+    </div>
+    <div class="soap-block a">
+      <div class="stitle"><span>A · Avaliação</span><button class="copybtn" data-copy="ta_a">copiar</button></div>
+      <textarea id="ta_a"></textarea>
+    </div>
+    <div class="soap-block p">
+      <div class="stitle"><span>P · Plano</span><button class="copybtn" data-copy="ta_p">copiar</button></div>
+      <textarea id="ta_p"></textarea>
+    </div>
+
+    <div class="result-actions">
+      <button class="primary" id="copyAllBtn">Copiar SOAP completo</button>
+      <button class="ghost" id="regenBtn">Regenerar a partir do formulário</button>
+    </div>
+  </div>
+
+</div>
+
+<footer class="mq-foot" data-componente="rodape"></footer>
+
+<footer class="bar">
+  <div class="bar-inner">
+    <div class="count">
+      <b id="filledCount">0</b> de <span id="totalCount">0</span> campos preenchidos
+      <span id="missingNote" style="color:var(--warn);"> · complete as 12 seções para liberar a geração</span>
+    </div>
+    <button class="ghost" id="clearBtn">Limpar formulário</button>
+    <button class="primary" id="gerarBtn" disabled>Gerar anamnese (SOAP)</button>
+  </div>
+</footer>
+
+<div class="toast" id="toast">Copiado</div>
+</body>
+</html>

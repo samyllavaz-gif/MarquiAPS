@@ -1,0 +1,538 @@
+/* Layout das páginas de sistemas (calculadoras e contracepção): container, área do programa, títulos e cartões */
+
+:root {
+  --rosa-claro: var(--mq-rosa-claro);
+  --rosa: var(--mq-rosa);
+  --rosa-forte: var(--mq-rosa-forte);
+  --vinho: var(--mq-vinho);
+  --cinza-texto: #4a4a4a;
+  --cinza-suave: #f7f7f8;
+  --branco: #ffffff;
+  --borda: var(--mq-borda);
+  --sombra: var(--mq-sombra);
+  --radius: 24px;
+}
+
+/* RESET GERAL */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  display: block !important;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  font-family: 'Caviar Dreams', 'Inter', Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg, #fff7fb 0%, #ffffff 45%, #fff1f7 100%) !important;
+  color: var(--cinza-texto);
+}
+
+/* FONTES */
+
+h1,
+h2,
+h3,
+.brand-title {
+  font-family: 'TAN Whistling', 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  font-weight: normal;
+  letter-spacing: 0.3px;
+}
+
+p,
+a,
+span,
+button,
+input,
+select,
+textarea,
+.brand-subtitle,
+.card-link {
+  font-family: 'Caviar Dreams', 'Inter', Arial, Helvetica, sans-serif;
+}
+
+/* CONTAINER PADRÃO */
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+/* CABEÇALHO */
+
+.topbar {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--borda);
+}
+
+.nav-content {
+  min-height: 82px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  gap: 22px;
+}
+
+.brand {
+  flex-shrink: 0;
+}
+
+.brand-title {
+  color: var(--vinho);
+  font-size: 1.9rem;
+  line-height: 1;
+}
+
+.brand-subtitle {
+  color: var(--rosa-forte);
+  font-size: 0.82rem;
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+/* LOGO NO CABEÇALHO */
+
+.brand-with-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+.logo-completo {
+  width: 190px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* MENU */
+
+nav {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+nav a {
+  color: var(--vinho);
+  text-decoration: none;
+  font-size: 0.94rem;
+  padding: 9px 13px;
+  border-radius: 999px;
+  transition: 0.2s ease;
+  font-weight: 600;
+}
+
+nav a:hover {
+  background: var(--rosa-claro);
+  color: var(--rosa-forte);
+}
+
+/* PÁGINA INICIAL */
+
+main.container {
+  display: block !important;
+  padding-top: 1px;
+}
+
+.hero {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 42px;
+  margin-bottom: 42px;
+}
+
+.hero-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--borda);
+  border-radius: 34px;
+  padding: 48px 42px;
+  box-shadow: var(--sombra);
+  max-width: 850px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo-hero {
+  width: 260px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 28px;
+}
+
+.tag {
+  display: inline-block;
+  background: var(--rosa-claro);
+  color: var(--rosa-forte);
+  border: 1px solid var(--borda);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+h1 {
+  color: var(--vinho);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  line-height: 1;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.hero p {
+  font-size: 1.08rem;
+  line-height: 1.7;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+
+/* BOTÕES */
+
+.btn {
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--rosa-forte);
+  color: white;
+  box-shadow: 0 8px 18px rgba(216, 95, 153, 0.22);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: var(--vinho);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--vinho);
+  border: 1px solid var(--borda);
+}
+
+.btn-secondary:hover {
+  background: var(--rosa-claro);
+}
+
+/* SEÇÕES */
+
+.section {
+  margin-top: 48px;
+}
+
+.section-heading {
+  margin-bottom: 20px;
+}
+
+.section-heading h2 {
+  color: var(--vinho);
+  font-size: 2.6rem;
+  margin-bottom: 8px;
+}
+
+.section-heading p {
+  line-height: 1.6;
+  color: #666;
+}
+
+/* CARDS DOS SISTEMAS */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.tool-card {
+  background: white;
+  border: 1px solid var(--borda);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--sombra);
+  transition: 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.tool-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--rosa);
+}
+
+.tool-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: var(--rosa-claro);
+  border: 1px solid var(--borda);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.tool-icon img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  display: block;
+}
+
+.tool-card h3 {
+  font-family: 'TAN Whistling', 'Playfair Display', Georgia, serif;
+  color: var(--vinho);
+  font-size: 1.55rem;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.tool-card p {
+  line-height: 1.55;
+  color: #666;
+  font-size: 0.96rem;
+  flex: 1;
+  margin-bottom: 18px;
+}
+
+.card-link {
+  color: var(--rosa-forte);
+  font-weight: 800;
+}
+
+/* SOBRE */
+
+.about-card,
+.program-card {
+  background: white;
+  border: 1px solid var(--borda);
+  border-radius: 28px;
+  padding: 30px;
+  box-shadow: var(--sombra);
+  line-height: 1.7;
+}
+
+.about-card p + p {
+  margin-top: 14px;
+}
+
+.about-card strong {
+  color: var(--vinho);
+}
+
+/* PÁGINAS DOS SISTEMAS */
+
+.program-header {
+  width: 100%;
+  max-width: 900px;
+  margin: 42px auto 22px;
+  text-align: center;
+}
+
+.program-header h1 {
+  color: var(--vinho);
+  font-family: 'TAN Whistling', 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: normal;
+  line-height: 0.95;
+  margin: 14px auto 20px;
+  text-align: center;
+}
+
+.program-header p {
+  max-width: 760px;
+  margin: 0 auto;
+  line-height: 1.7;
+  color: #666;
+  font-size: 1.05rem;
+}
+
+.program-area {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 60px;
+  background: white;
+  border: 1px solid var(--borda);
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: var(--sombra);
+}
+
+/* ENVOLVA OS SISTEMAS DENTRO DESTA CLASSE */
+
+.sistema-interno {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* PLACEHOLDER */
+
+.placeholder {
+  border: 2px dashed var(--rosa);
+  border-radius: 22px;
+  padding: 26px;
+  background: #fff8fb;
+  color: var(--vinho);
+  line-height: 1.65;
+}
+
+.placeholder-title {
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: var(--rosa-forte);
+}
+
+.placeholder code {
+  background: white;
+  padding: 3px 7px;
+  border-radius: 8px;
+  color: var(--rosa-forte);
+  border: 1px solid var(--borda);
+}
+
+/* RODAPÉ */
+
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 30px 20px 45px;
+  color: var(--vinho);
+  font-size: 0.92rem;
+  display: grid !important;
+  gap: 4px;
+}
+
+footer strong {
+  color: var(--rosa-forte);
+}
+
+.logo-footer {
+  width: 130px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 12px;
+}
+
+/* PROTEÇÃO CONTRA CÓDIGOS DOS SISTEMAS QUEBRANDO O LAYOUT */
+
+body > header,
+body > main,
+body > footer {
+  flex: none !important;
+}
+
+.topbar,
+main.container,
+footer {
+  display: block;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 950px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section-heading h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .nav-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  nav {
+    justify-content: center;
+  }
+
+  .program-area {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 650px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero-card {
+    padding: 28px;
+  }
+
+  .logo-hero {
+    width: 220px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .program-header h1 {
+    font-size: clamp(2.4rem, 14vw, 4rem);
+  }
+}

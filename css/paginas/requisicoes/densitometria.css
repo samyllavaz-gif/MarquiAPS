@@ -1,0 +1,47 @@
+/* Layout: barra fixa + seções em coluna única (dados digitados uma vez); BPA-I e Pedido do HC só existem na impressão */
+button.link{border:0;background:none;color:var(--accent);padding:4px 0;font-weight:700}
+section{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 18px 20px}
+section>h2 span{font:700 11px var(--ui);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.req::after{content:" *";color:var(--accent)}
+input[type=text],input[type=date],input:not([type]),textarea{font:inherit;font-size:15px;color:var(--fg);background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:8px 10px;width:100%;min-width:0;font-variant-numeric:tabular-nums}
+textarea{resize:vertical;min-height:76px;line-height:1.4}
+input:focus,textarea:focus{border-color:var(--focus);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--focus) 25%,transparent)}
+.cnt{font-size:11px;color:var(--muted);align-self:flex-end;font-variant-numeric:tabular-nums}
+.cnt.over{color:var(--warn);font-weight:700}
+.q{display:grid;gap:8px;padding:12px 0;border-top:1px solid var(--line)}
+.q:first-child{border-top:0;padding-top:0}
+.q>p{margin:0;font-weight:700}
+.q>p small{font-weight:400;color:var(--muted)}
+.opt input{margin:0;accent-color:var(--accent)}
+.opt:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.pick{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:700px){.pick{grid-template-columns:1fr}}
+.card{display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--line);border-radius:10px;padding:14px;cursor:pointer;background:var(--soft)}
+.card input{margin-top:3px;width:18px;height:18px;accent-color:var(--accent)}
+.card b{display:block;font:600 16px var(--display)}
+.card small{color:var(--muted);font-size:13px}
+.card:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.tw{overflow-x:auto}
+table.ex{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}
+table.ex th{text-align:left;font-size:12px;color:var(--muted);font-weight:700;padding:4px 6px;letter-spacing:.04em;text-transform:uppercase}
+table.ex td{padding:3px 4px;border-top:1px solid var(--line)}
+table.ex td:first-child{width:44%}
+table.ex input{padding:6px 8px;font-size:14px}
+.preview{font-size:13px;color:var(--muted);background:var(--soft);border:1px dashed var(--line);border-radius:6px;padding:8px 10px;margin:0;white-space:pre-wrap}
+.preview b{color:var(--fg)}
+/* impressão: folhas existem fora da tela para permitir medir e encaixar o texto */
+#print{position:absolute;left:-20000px;top:0;visibility:hidden}
+.page{position:relative;width:594pt;height:840pt;overflow:hidden;background:#fff}
+.sheet{position:absolute;left:0;top:0;transform-origin:0 0}
+.sheet>img{position:absolute;inset:0;width:100%;height:100%}
+.t{position:absolute;font:700 9pt/1.15 var(--fill);color:#000;white-space:nowrap;overflow:visible}
+.tc{text-align:center}
+.mt{position:absolute;font:400 9pt/11pt var(--fill);color:#000;white-space:pre-wrap;overflow-wrap:anywhere}
+.bx{position:absolute;border:0.9pt solid #000}
+.xx{position:absolute;font:700 9pt/1 var(--fill);color:#000;display:flex;align-items:center;justify-content:center}
+@media print{
+  .bar,main,#pending{display:none!important}
+  #print{position:static;visibility:visible}
+  .page{margin:0 auto;break-after:page;page-break-after:always}
+  .page.last{break-after:auto;page-break-after:auto}
+}

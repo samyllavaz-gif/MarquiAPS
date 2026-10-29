@@ -1,0 +1,19 @@
+/* Layout: início = grade de modelos de consulta; consulta = formulário SOAP à esquerda + painel fixo com texto pronto à direita; empilha no celular */
+:root{
+  --bg:var(--mq-rosa-fundo); --surface:#FFFFFF; --surface-2:var(--mq-rosa-claro); --fg:var(--mq-tinta); --muted:var(--mq-muted); --line:var(--mq-borda);
+  --accent:var(--mq-acento); --accent-ink:#FFFFFF; --accent-soft:var(--mq-rosa-claro); --brand:var(--mq-rosa-forte); --vinho:var(--mq-vinho);
+  --hd:var(--mq-vinho-medio); --hd-soft:#f6e4ee;
+  --ok:#2C7A4C; --ok-soft:#DCEFE3; --warn:#A86B12; --warn-soft:#F6EAD3; --bad:#B0412C; --bad-soft:#F6DDD7;
+  --f-display:var(--mq-display);
+  --f-body:var(--mq-body);
+  --f-mono:var(--mq-mono);
+  color-scheme:light;
+}
+
+*{box-sizing:border-box}
+body{background:var(--bg) linear-gradient(180deg,#fff7fb 0%,#ffffff 45%,#fff1f7 100%);background-attachment:fixed;color:var(--fg);font:16px/1.5 var(--f-body);margin:0}
+h1,h2{font-family:var(--f-display);font-weight:400;color:var(--vinho);text-wrap:balance;margin:0;line-height:1.1;letter-spacing:.3px}
+h3,h4{font-family:var(--f-body);font-weight:700;color:var(--vinho);text-wrap:balance;margin:0;line-height:1.2}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1320px;margin:0 auto;padding-inline:16px}

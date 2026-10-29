@@ -1,0 +1,4 @@
+/* Fontes da identidade Marqui (arquivos em assets/fonts) */
+@font-face{font-family:'TAN Whistling';src:url('../../assets/fonts/tan-whistling.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Caviar Dreams';src:url('../../assets/fonts/caviar-dreams.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Calling Code';src:url('../../assets/fonts/calling-code.otf') format('opentype');font-display:swap}
